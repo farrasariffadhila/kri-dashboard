@@ -7,6 +7,8 @@ import { formatDate, formatDuration, formatNumber, formatPercent, formatScore } 
 import AppIcon from './AppIcon.vue'
 import StatusBadge from './StatusBadge.vue'
 import { localized } from '../i18n/index.js'
+import { authStore } from '../lib/auth.js'
+import { DISPUTABLE_KRIS } from '../lib/disputes.js'
 
 const { t } = useI18n()
 
@@ -26,6 +28,11 @@ const audits = computed(() => props.department.kris.open_high_audits)
 const servers = computed(() => props.department.kris.unpatched_servers)
 const uptime = computed(() => props.department.kris.uptime)
 const phishing = computed(() => props.department.kris.phishing_failure)
+
+// Disputes: the unit owner of this department may challenge a figure; other unit owners cannot open them.
+const isOwnUnit = computed(() => authStore.user?.role === 'unit_owner' && authStore.user?.department?.id === props.department.id)
+const canOpenDisputes = computed(() => authStore.user?.role !== 'unit_owner' || isOwnUnit.value)
+const canDispute = (kri) => isOwnUnit.value && DISPUTABLE_KRIS.includes(kri.key) && !kri.open_dispute_id
 
 /** "≥ 10,0%" for KRIs that worsen upwards, "≤ 99,90%" for uptime, which worsens downwards. */
 function thresholdText(kri, anchor) {
@@ -71,7 +78,34 @@ function overdueText(days) {
                   {{ t('common.source', { system: localized(sources[kri.key].system) }) }}{{ sources[kri.key].simulated ? ` ${t('common.simulated')}` : '' }}
                 </span>
               </th>
-              <td class="px-3 py-3 text-right font-semibold tabular">{{ kri.format(kri.value) }}</td>
+              <td class="px-3 py-3 text-right font-semibold tabular">
+                {{ kri.format(kri.value) }}
+                <span v-if="kri.correction" class="block text-xs font-normal whitespace-nowrap text-muted">
+                  {{ t('dispute.table.was', { value: kri.format(kri.correction.source_value) }) }}{{ canOpenDisputes ? ' · ' : '' }}<RouterLink
+                    v-if="canOpenDisputes"
+                    :to="{ name: 'dispute-detail', params: { id: kri.correction.dispute_id } }"
+                    class="text-accent hover:underline"
+                    >{{ t('dispute.table.link', { id: kri.correction.dispute_id }) }}</RouterLink
+                  >
+                </span>
+                <template v-if="kri.open_dispute_id">
+                  <RouterLink
+                    v-if="canOpenDisputes"
+                    :to="{ name: 'dispute-detail', params: { id: kri.open_dispute_id } }"
+                    class="block text-xs font-medium whitespace-nowrap text-warning-fg underline underline-offset-2"
+                  >
+                    {{ t('dispute.table.open') }}
+                  </RouterLink>
+                  <span v-else class="block text-xs font-medium whitespace-nowrap text-warning-fg">{{ t('dispute.table.open') }}</span>
+                </template>
+                <RouterLink
+                  v-else-if="canDispute(kri)"
+                  :to="{ name: 'dispute-new', query: { kri: kri.key } }"
+                  class="block text-xs font-normal whitespace-nowrap text-accent hover:underline"
+                >
+                  {{ t('dispute.table.file') }}
+                </RouterLink>
+              </td>
               <td class="px-3 py-3 text-right whitespace-nowrap text-secondary tabular">{{ thresholdText(kri, 'tolerance') }}</td>
               <td class="px-3 py-3 text-right whitespace-nowrap text-secondary tabular">{{ thresholdText(kri, 'limit') }}</td>
               <td class="px-3 py-3"><StatusBadge size="sm" :status="statusFromScore(kri.score, methodology.bands)" /></td>

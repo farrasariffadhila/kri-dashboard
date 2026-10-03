@@ -81,4 +81,9 @@ export const submitEvidence = (issueId, formData) => post(`/audit-issues/${encod
 export const reviewSubmission = (submissionId, decision, note) =>
   post(`/remediation-submissions/${encodeURIComponent(submissionId)}/review`, { decision, note: note || null })
 
+export const fetchDisputes = (params, signal) => get('/kri-disputes', { params, signal })
+export const fetchDispute = (id, signal) => get(`/kri-disputes/${encodeURIComponent(id)}`, { signal })
+export const submitDispute = (formData) => post('/kri-disputes', formData)
+export const reviewDispute = (id, payload) => post(`/kri-disputes/${encodeURIComponent(id)}/review`, payload)
+
 export const attachmentUrl = (id) => `${BASE_URL}/attachments/${encodeURIComponent(id)}`

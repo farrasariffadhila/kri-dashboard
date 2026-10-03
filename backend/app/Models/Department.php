@@ -29,6 +29,11 @@ class Department extends Model
         return $this->hasMany(PhishingTest::class);
     }
 
+    public function kriDisputes(): HasMany
+    {
+        return $this->hasMany(KriDispute::class);
+    }
+
     public function serverComplianceSnapshots(): HasMany
     {
         return $this->hasMany(ServerComplianceSnapshot::class);

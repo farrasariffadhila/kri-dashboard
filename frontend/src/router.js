@@ -41,6 +41,25 @@ const router = createRouter({
       meta: { titleKey: 'titles.auditDetail' },
     },
     {
+      path: '/sanggahan',
+      name: 'disputes',
+      component: () => import('./pages/DisputesPage.vue'),
+      meta: { titleKey: 'titles.disputes' },
+    },
+    {
+      path: '/sanggahan/baru',
+      name: 'dispute-new',
+      component: () => import('./pages/DisputeNewPage.vue'),
+      meta: { titleKey: 'titles.disputeNew', canVisit: (user) => user.role === 'unit_owner' },
+    },
+    {
+      path: '/sanggahan/:id(\\d+)',
+      name: 'dispute-detail',
+      component: () => import('./pages/DisputeDetailPage.vue'),
+      props: true,
+      meta: { titleKey: 'titles.disputeDetail' },
+    },
+    {
       path: '/server',
       name: 'servers',
       component: () => import('./pages/ServerInventoryPage.vue'),

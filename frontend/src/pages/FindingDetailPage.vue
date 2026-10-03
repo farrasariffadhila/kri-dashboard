@@ -8,6 +8,7 @@ import { loadSummary, resetRiskStore } from '../lib/store.js'
 import { RISK_LEVELS, roleLabel } from '../lib/kri.js'
 import { TONE_CLASSES, activityText, completedSteps, remediationInfo, steps, submissionStatus, submissionType } from '../lib/workflow.js'
 import { formatDate, formatDateTime, formatNumber } from '../lib/format.js'
+import { sizeText } from '../lib/attachments.js'
 import PageHeader from '../components/PageHeader.vue'
 import AppIcon from '../components/AppIcon.vue'
 import SubmissionForm from '../components/SubmissionForm.vue'
@@ -71,10 +72,6 @@ async function afterAction(messageKey) {
   resetRiskStore()
   loadSummary()
   refreshWorkCounts()
-}
-
-function sizeText(bytes) {
-  return bytes >= 1024 * 1024 ? `${formatNumber(bytes / 1024 / 1024, 1)} MB` : `${formatNumber(Math.ceil(bytes / 1024))} KB`
 }
 
 const crumbs = computed(() => [

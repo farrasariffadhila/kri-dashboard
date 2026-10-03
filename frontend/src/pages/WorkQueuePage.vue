@@ -8,6 +8,7 @@ import { RISK_LEVELS } from '../lib/kri.js'
 import { REMEDIATION_STATUS, TONE_CLASSES } from '../lib/workflow.js'
 import { formatDate, formatNumber } from '../lib/format.js'
 import PageHeader from '../components/PageHeader.vue'
+import DisputeTable from '../components/DisputeTable.vue'
 
 const { t } = useI18n()
 
@@ -30,19 +31,27 @@ onMounted(load)
 const role = computed(() => authStore.user?.role)
 const intro = computed(() => {
   if (role.value === 'unit_owner') return t('workQueue.introOwner', { department: authStore.user?.department?.name ?? '' })
+  if (role.value === 'risk_officer') return t('workQueue.introRiskOfficer')
   return t('workQueue.introAuditor')
 })
 
 const sections = computed(() => {
   if (!data.value) return []
+  // IT Risk only decides disputes; the audit sections would always be empty for them.
+  if (role.value === 'risk_officer') return [{ key: 'disputes', kind: 'disputes', title: t('workQueue.disputesToReview'), items: data.value.disputes }]
+
   const list = [
     {
       key: 'action',
+      kind: 'issues',
       title: role.value === 'auditor' ? t('workQueue.awaitingYourReview') : t('workQueue.actionNeeded'),
       items: data.value.action_needed,
     },
   ]
-  if (role.value === 'unit_owner') list.push({ key: 'waiting', title: t('workQueue.waitingAuditor'), items: data.value.waiting })
+  if (role.value === 'unit_owner') {
+    list.push({ key: 'waiting', kind: 'issues', title: t('workQueue.waitingAuditor'), items: data.value.waiting })
+    if (data.value.disputes.length) list.push({ key: 'disputes', kind: 'disputes', title: t('workQueue.disputesWaiting'), items: data.value.disputes })
+  }
   return list
 })
 </script>
@@ -71,6 +80,7 @@ const sections = computed(() => {
       <p v-if="!section.items.length" class="mt-3 border border-border bg-surface px-6 py-8 text-center text-secondary">
         {{ t('workQueue.empty') }}
       </p>
+      <DisputeTable v-else-if="section.kind === 'disputes'" class="mt-3" :disputes="section.items" :label="section.title" :show-status="false" />
       <div v-else class="relative mt-3 overflow-x-auto border-y border-border bg-surface" tabindex="0" role="region" :aria-label="section.title">
         <table class="w-full min-w-3xl border-collapse text-sm">
           <thead>

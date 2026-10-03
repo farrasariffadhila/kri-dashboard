@@ -143,6 +143,7 @@ const ANCHORS = [
     <section aria-labelledby="m-lineage">
       <h2 id="m-lineage" class="font-serif text-xl font-semibold">{{ t('methodology.s5') }}</h2>
       <p class="mt-2 max-w-prose text-secondary">{{ t('methodology.s5Text') }}</p>
+      <p class="mt-2 max-w-prose text-secondary">{{ t('methodology.s5Corrections') }}</p>
       <p v-if="anySimulated" class="mt-2 max-w-prose text-sm font-medium text-warning-fg">{{ t('methodology.s5Simulated') }}</p>
       <div class="mt-4 space-y-4">
         <article v-for="kri in KRIS" :key="kri.key" class="border border-border bg-surface p-5">

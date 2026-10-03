@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Enums\Role;
 use App\Models\ActivityLog;
 use App\Models\Attachment;
+use App\Models\KriDispute;
 use App\Models\RemediationSubmission;
 use App\Services\AttachmentStore;
 use Illuminate\Http\Request;
@@ -39,6 +40,7 @@ class AttachmentController extends Controller
 
         return match (true) {
             $owner instanceof RemediationSubmission => $owner->auditIssue->department_id,
+            $owner instanceof KriDispute => $owner->department_id,
             default => null,
         };
     }

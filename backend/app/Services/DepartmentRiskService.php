@@ -6,6 +6,7 @@ use App\Models\AuditIssue;
 use App\Models\DataLoad;
 use App\Models\Department;
 use App\Models\Incident;
+use App\Models\KriDispute;
 use App\Models\PhishingTest;
 use App\Models\Server;
 use App\Models\ServerComplianceSnapshot;
@@ -20,6 +21,9 @@ use InvalidArgumentException;
  * The reporting month uses the live tables (servers inventory, current audit status),
  * exactly as the PRD defines the KRIs. Earlier months are rebuilt from
  * server_compliance_snapshots and the audit lifecycle dates.
+ *
+ * Accepted KRI disputes replace the source figure for the reporting month; the source
+ * figure is reported next to it so the correction is never silent.
  */
 class DepartmentRiskService
 {
@@ -107,7 +111,7 @@ class DepartmentRiskService
             'methodology' => $this->scorer->methodology(),
             'data_sources' => $this->dataSources(),
             'totals' => [
-                'current' => $this->scoredTotals($this->currentTotals($month)),
+                'current' => $this->scoredTotals($this->currentTotals($month, $current)),
                 'previous' => $this->scoredTotals($this->historicalTotals($previousMonth)),
             ],
             'data' => $departments,
@@ -142,7 +146,7 @@ class DepartmentRiskService
      *
      * @return array<int, array<string, array>>
      */
-    private function currentMetrics(string $month, ?int $departmentId = null): array
+    private function currentMetrics(string $month, ?int $departmentId = null, bool $applyDisputes = true): array
     {
         $asOf = $this->monthEnd($month);
         $scope = fn (Builder $query) => $query->when($departmentId, fn ($q) => $q->where('department_id', $departmentId));
@@ -211,7 +215,91 @@ class DepartmentRiskService
             ];
         }
 
+        return $applyDisputes ? $this->applyDisputes($metrics, $month, $departmentId) : $metrics;
+    }
+
+    /**
+     * Replace source figures with accepted corrections (latest decision wins) and flag open disputes.
+     */
+    private function applyDisputes(array $metrics, string $month, ?int $departmentId): array
+    {
+        $disputes = KriDispute::query()
+            ->forMonth($month)
+            ->whereIn('status', [KriDispute::STATUS_ACCEPTED, KriDispute::STATUS_PENDING])
+            ->when($departmentId, fn ($q) => $q->where('department_id', $departmentId))
+            ->orderBy('reviewed_at')
+            ->orderBy('id')
+            ->get();
+
+        foreach ($disputes as $dispute) {
+            if (! isset($metrics[$dispute->department_id][$dispute->kri])) {
+                continue;
+            }
+            $metric = &$metrics[$dispute->department_id][$dispute->kri];
+
+            if ($dispute->isPending()) {
+                $metric['open_dispute_id'] = $dispute->id;
+                continue;
+            }
+
+            $sourceValue = $metric['correction']['source_value'] ?? $metric['value'];
+            $sourceFigure = $metric['correction']['source_figure'] ?? $this->figure($dispute->kri, $metric);
+            $corrected = $dispute->corrected_value;
+
+            if ($dispute->kri === 'unpatched_servers') {
+                $metric['non_compliant'] = (int) $corrected;
+                $metric['value'] = $this->percentage((int) $corrected, $metric['total_servers']);
+            } elseif ($dispute->kri === 'phishing_failure') {
+                $metric['total_failed'] = (int) $corrected;
+                $metric['value'] = $this->percentage((int) $corrected, $metric['total_tested']);
+            } else {
+                $metric['value'] = round($corrected, 2);
+            }
+
+            $metric['correction'] = [
+                'dispute_id' => $dispute->id,
+                'source_value' => $sourceValue,
+                'source_figure' => $sourceFigure,
+                'reviewed_at' => $dispute->reviewed_at?->toIso8601String(),
+            ];
+        }
+        unset($metric);
+
         return $metrics;
+    }
+
+    /** The figure a dispute is expressed in: server count, employee count, or uptime percentage. */
+    private function figure(string $kri, array $metric): int|float|null
+    {
+        return match ($kri) {
+            'unpatched_servers' => $metric['non_compliant'],
+            'phishing_failure' => $metric['total_failed'],
+            'uptime' => $metric['value'],
+        };
+    }
+
+    /**
+     * Source and current figures for one disputable KRI of a department in the reporting month,
+     * plus the valid range a corrected figure must fall in.
+     *
+     * @return array{source: int|float|null, current: int|float|null, max: int|float, integer: bool}
+     */
+    public function disputeBaseline(int $departmentId, string $kri): array
+    {
+        $month = $this->reportingMonth();
+        $source = $this->currentMetrics($month, $departmentId, applyDisputes: false)[$departmentId][$kri];
+        $current = $this->currentMetrics($month, $departmentId)[$departmentId][$kri];
+
+        return [
+            'source' => $this->figure($kri, $source),
+            'current' => $this->figure($kri, $current),
+            'max' => match ($kri) {
+                'unpatched_servers' => $source['total_servers'],
+                'phishing_failure' => $source['total_tested'],
+                'uptime' => 100,
+            },
+            'integer' => $kri !== 'uptime',
+        ];
     }
 
     /**
@@ -252,21 +340,44 @@ class DepartmentRiskService
         return $metrics;
     }
 
-    /** Bank-wide KRI values for the reporting month (live tables). */
-    private function currentTotals(string $month): array
+    /**
+     * Bank-wide KRI values for the reporting month (live tables), including accepted corrections
+     * from the per-department metrics so the bank total always agrees with the departments.
+     */
+    private function currentTotals(string $month, array $departmentMetrics): array
     {
         $servers = Server::query()
             ->select(DB::raw('COUNT(*) AS total'), DB::raw('SUM(CASE WHEN is_compliant = 0 THEN 1 ELSE 0 END) AS non_compliant'))
             ->first();
         $openHigh = AuditIssue::query()->open()->highRisk();
 
-        return $this->totals(
+        $totals = $this->totals(
             nonCompliant: (int) $servers->non_compliant,
             totalServers: (int) $servers->total,
             openHigh: (clone $openHigh)->count(),
             overdue: (clone $openHigh)->whereDate('due_date', '<', $this->monthEnd($month)->toDateString())->count(),
             month: $month,
         );
+
+        foreach ($departmentMetrics as $metrics) {
+            if ($c = $metrics['unpatched_servers']['correction'] ?? null) {
+                $totals['unpatched_servers']['non_compliant'] += $metrics['unpatched_servers']['non_compliant'] - $c['source_figure'];
+            }
+            if ($c = $metrics['phishing_failure']['correction'] ?? null) {
+                $totals['phishing_failure']['total_failed'] += $metrics['phishing_failure']['total_failed'] - $c['source_figure'];
+            }
+            if (($c = $metrics['uptime']['correction'] ?? null) && $totals['uptime']['applications'] > 0) {
+                // The bank figure is the mean over all applications, so weigh the change by the department's share.
+                $totals['uptime']['value'] = round(
+                    $totals['uptime']['value'] + ($metrics['uptime']['value'] - $c['source_figure']) * $metrics['uptime']['applications'] / $totals['uptime']['applications'],
+                    2,
+                );
+            }
+        }
+        $totals['unpatched_servers']['value'] = $this->percentage($totals['unpatched_servers']['non_compliant'], $totals['unpatched_servers']['total_servers']);
+        $totals['phishing_failure']['value'] = $this->percentage($totals['phishing_failure']['total_failed'], $totals['phishing_failure']['total_tested']);
+
+        return $totals;
     }
 
     /** Bank-wide KRI values for a past month (snapshots and audit lifecycle dates). */

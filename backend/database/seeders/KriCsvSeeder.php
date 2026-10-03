@@ -30,7 +30,7 @@ class KriCsvSeeder extends Seeder
     ];
 
     /** Workflow data that points at imported rows; reset together with them. */
-    private const DEPENDENT_TABLES = ['attachments', 'remediation_submissions', 'activity_logs'];
+    private const DEPENDENT_TABLES = ['attachments', 'remediation_submissions', 'kri_disputes', 'activity_logs'];
 
     private const CHUNK_SIZE = 1000;
 

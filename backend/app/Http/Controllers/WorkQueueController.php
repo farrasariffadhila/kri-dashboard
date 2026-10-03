@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Enums\RemediationStatus;
 use App\Enums\Role;
 use App\Models\AuditIssue;
+use App\Models\KriDispute;
 use App\Services\DepartmentRiskService;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\JsonResponse;
@@ -36,7 +37,18 @@ class WorkQueueController extends Controller
                     ->whereIn('remediation_status', [RemediationStatus::PlanReview, RemediationStatus::EvidenceReview])),
                 collect(),
             ],
+            Role::RiskOfficer => [collect(), collect()],
         };
+
+        // Open KRI disputes: IT Risk has to decide them; a unit owner is waiting on their own.
+        $disputes = $user->hasRole(Role::Auditor) ? collect() : KriDispute::query()
+            ->with(['department:id,name', 'submitter:id,name,role'])
+            ->forMonth($risk->reportingMonth())
+            ->pending()
+            ->when($user->hasRole(Role::UnitOwner), fn ($q) => $q->where('department_id', $user->department_id))
+            ->oldest('id')
+            ->get();
+        $disputesNeedAction = $user->hasRole(Role::RiskOfficer);
 
         $present = fn ($issues) => $issues->map(fn (AuditIssue $a) => [
             'id' => $a->id,
@@ -50,9 +62,13 @@ class WorkQueueController extends Controller
 
         return response()->json([
             'role' => $user->role->value,
-            'counts' => ['action_needed' => $actionNeeded->count(), 'waiting' => $waiting->count()],
+            'counts' => [
+                'action_needed' => $actionNeeded->count() + ($disputesNeedAction ? $disputes->count() : 0),
+                'waiting' => $waiting->count() + ($disputesNeedAction ? 0 : $disputes->count()),
+            ],
             'action_needed' => $present($actionNeeded),
             'waiting' => $present($waiting),
+            'disputes' => $disputes->map(fn (KriDispute $d) => KriDisputeController::summary($d))->values(),
         ]);
     }
 

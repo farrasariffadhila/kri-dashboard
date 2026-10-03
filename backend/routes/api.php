@@ -4,6 +4,7 @@ use App\Http\Controllers\AttachmentController;
 use App\Http\Controllers\AuditIssueController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DemoAuthController;
+use App\Http\Controllers\KriDisputeController;
 use App\Http\Controllers\RemediationController;
 use App\Http\Controllers\RiskDashboardController;
 use App\Http\Controllers\ServerController;
@@ -34,6 +35,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('audit-issues/{auditIssue}/plans', [RemediationController::class, 'submitPlan'])->whereNumber('auditIssue');
     Route::post('audit-issues/{auditIssue}/evidence', [RemediationController::class, 'submitEvidence'])->whereNumber('auditIssue');
     Route::post('remediation-submissions/{submission}/review', [RemediationController::class, 'review'])->whereNumber('submission');
+    Route::get('kri-disputes', [KriDisputeController::class, 'index']);
+    Route::post('kri-disputes', [KriDisputeController::class, 'store']);
+    Route::get('kri-disputes/{dispute}', [KriDisputeController::class, 'show'])->whereNumber('dispute');
+    Route::post('kri-disputes/{dispute}/review', [KriDisputeController::class, 'review'])->whereNumber('dispute');
+
     Route::get('attachments/{attachment}', [AttachmentController::class, 'show'])->whereNumber('attachment');
     Route::get('work-queue', [WorkQueueController::class, 'index']);
 });

@@ -15,9 +15,9 @@ enum Role: string
         return __("roles.{$this->value}");
     }
 
-    /** Roles that take part in the remediation workflow and therefore have a work queue. */
+    /** Roles that act in a workflow (remediation or KRI disputes) and therefore have a work queue. */
     public function hasWorkQueue(): bool
     {
-        return in_array($this, [self::UnitOwner, self::Auditor], true);
+        return in_array($this, [self::UnitOwner, self::Auditor, self::RiskOfficer], true);
     }
 }

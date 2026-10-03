@@ -34,15 +34,15 @@ Every page except `/masuk` requires a session. Authentication uses Laravel Sanct
 | Persona | Role | Can do |
 |---|---|---|
 | Hendra Wijaya | Board of directors | View only |
-| Rina Kartika (Kartu Kredit), plus one owner per department | Unit owner | Submit action plans and remediation evidence for their own department |
+| Rina Kartika (Kartu Kredit), plus one owner per department | Unit owner | Submit action plans and remediation evidence, and dispute KRI figures, for their own department |
 | Fajar Nugroho | Internal auditor | Approve or return submissions, close findings |
-| Maya Anggraini | IT Risk | Reviews KRI data disputes (phase 5b) |
+| Maya Anggraini | IT Risk | Accept (with a corrected figure) or reject KRI data disputes |
 
 **Demo mode off (`KRI_DEMO_MODE=false`).** This is what a real deployment uses. The page shows only the email and password form. Sign-in is throttled after 5 failed attempts and always gives the same error message, whether the email or the password is wrong. Demo accounts get a random password unless `DEMO_USER_PASSWORD` is set.
 
 ## Structure
 
-The app has a sidebar and five pages (Vue Router, history mode). A production host needs a fallback that serves `index.html` for unknown paths.
+The app has a sidebar and the pages below (Vue Router, history mode). A production host needs a fallback that serves `index.html` for unknown paths.
 
 | Route | Page |
 |---|---|
@@ -54,6 +54,9 @@ The app has a sidebar and five pages (Vue Router, history mode). A production ho
 | `/masuk` | Sign-in: persona picker in demo mode, email and password form otherwise |
 | `/tindak-lanjut` | Work queue: what the signed-in user has to act on |
 | `/temuan-audit/:id` | One finding: remediation steps, the role-specific action form, submission history with evidence files, audit trail |
+| `/sanggahan` | KRI data disputes for the reporting month, filterable by status. Unit owners see their own department only. |
+| `/sanggahan/baru` | Unit owners: dispute a figure of their own department (correct figure, reason, optional evidence) |
+| `/sanggahan/:id` | One dispute: source, proposed and corrected figures, IT Risk's review form or decision, audit trail |
 
 | Path | Purpose |
 |---|---|

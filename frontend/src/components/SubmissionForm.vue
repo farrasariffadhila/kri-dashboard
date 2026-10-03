@@ -2,6 +2,7 @@
 import { useI18n } from 'vue-i18n'
 import { computed, ref } from 'vue'
 import { ApiError, submitEvidence, submitPlan } from '../lib/api.js'
+import { ACCEPT, fileProblems, foldFileErrors } from '../lib/attachments.js'
 
 const { t } = useI18n()
 
@@ -11,10 +12,6 @@ const props = defineProps({
   type: { type: String, required: true }, // plan | evidence
 })
 const emit = defineEmits(['submitted'])
-
-const MAX_FILES = 3
-const MAX_BYTES = 5 * 1024 * 1024
-const ALLOWED = ['application/pdf', 'image/png', 'image/jpeg']
 
 const isPlan = computed(() => props.type === 'plan')
 const description = ref('')
@@ -34,10 +31,7 @@ const ids = computed(() => ({
 
 function onFiles(event) {
   const picked = [...event.target.files]
-  const problems = []
-  if (picked.length > MAX_FILES) problems.push(t('form.errors.tooMany', { max: MAX_FILES }))
-  if (picked.some((f) => f.size > MAX_BYTES)) problems.push(t('form.errors.tooLarge'))
-  if (picked.some((f) => !ALLOWED.includes(f.type))) problems.push(t('form.errors.wrongType'))
+  const problems = fileProblems(picked)
   errors.value = { ...errors.value, files: problems }
   files.value = problems.length ? [] : picked
 }
@@ -70,21 +64,11 @@ async function submit() {
     if (fileInput.value) fileInput.value.value = ''
     emit('submitted')
   } catch (e) {
-    if (e instanceof ApiError && e.status === 422) errors.value = normalise(e.fieldErrors)
+    if (e instanceof ApiError && e.status === 422) errors.value = foldFileErrors(e.fieldErrors)
     else formError.value = e instanceof ApiError && e.body?.message ? e.body.message : t('form.errors.sendFailed')
   } finally {
     submitting.value = false
   }
-}
-
-/** Fold "files.0" style keys into "files". */
-function normalise(fieldErrors) {
-  const out = {}
-  for (const [key, messages] of Object.entries(fieldErrors)) {
-    const k = key.startsWith('files') ? 'files' : key
-    out[k] = [...(out[k] ?? []), ...messages]
-  }
-  return out
 }
 </script>
 
@@ -139,7 +123,7 @@ function normalise(fieldErrors) {
         ref="fileInput"
         type="file"
         multiple
-        accept=".pdf,.png,.jpg,.jpeg,application/pdf,image/png,image/jpeg"
+        :accept="ACCEPT"
         class="mt-1 block w-full text-sm file:mr-3 file:rounded-md file:border file:border-control file:bg-surface file:px-3 file:py-1.5 file:text-sm file:font-medium"
         :aria-invalid="!!errors.files?.length"
         :aria-describedby="`${ids.files}-hint${errors.files?.length ? ` ${ids.files}-error` : ''}`"

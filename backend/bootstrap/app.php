@@ -17,6 +17,8 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         // Cookie-based session auth (with CSRF protection) for requests coming from the SPA.
         $middleware->statefulApi();
+        // Behind a TLS-terminating proxy (Render, nginx): trust the immediate peer for scheme and client IP.
+        $middleware->trustProxies(at: '*');
         // There is no named "login" route (the SPA owns /masuk); API requests still get a JSON 401.
         $middleware->redirectGuestsTo('/masuk');
         // API messages follow the SPA's language; prepended so route-binding 404s are localised too.

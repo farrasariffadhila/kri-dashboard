@@ -1,0 +1,6 @@
+# Local run of the deploy image: http://localhost:8080
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"

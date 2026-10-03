@@ -51,7 +51,7 @@ function onBackdropClick(event) {
   <dialog
     ref="dialog"
     aria-labelledby="drilldown-title"
-    class="m-auto max-h-[90vh] w-[min(64rem,calc(100vw-2rem))] overflow-y-auto rounded-md border border-border bg-surface p-0 text-ink backdrop:bg-[var(--ui-backdrop)]"
+    class="m-auto max-h-[90vh] w-[min(64rem,calc(100vw-2rem))] overflow-y-auto rounded-md border border-border bg-surface p-0 text-ink backdrop:bg-(--ui-backdrop)"
     @close="onClose"
     @click="onBackdropClick"
   >

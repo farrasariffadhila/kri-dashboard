@@ -58,11 +58,11 @@ async function submit() {
       <legend class="text-sm font-medium">{{ t('review.decision') }}</legend>
       <div class="mt-2 flex flex-wrap gap-3">
         <label class="flex items-center gap-2 rounded-md border border-control px-3 py-2 text-sm has-[:checked]:border-accent has-[:checked]:bg-accent-subtle">
-          <input v-model="decision" type="radio" value="approve" class="accent-[var(--ui-accent)]" />
+          <input v-model="decision" type="radio" value="approve" class="accent-(--ui-accent)" />
           {{ isEvidence ? t('review.approveEvidence') : t('review.approvePlan') }}
         </label>
         <label class="flex items-center gap-2 rounded-md border border-control px-3 py-2 text-sm has-[:checked]:border-accent has-[:checked]:bg-accent-subtle">
-          <input v-model="decision" type="radio" value="return" class="accent-[var(--ui-accent)]" />
+          <input v-model="decision" type="radio" value="return" class="accent-(--ui-accent)" />
           {{ t('review.returnOption') }}
         </label>
       </div>

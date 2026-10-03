@@ -80,7 +80,7 @@ function statusText(issue) {
     <label class="flex items-center gap-2 py-2 text-sm">
       <input
         type="checkbox"
-        class="size-4 accent-[var(--ui-accent)]"
+        class="size-4 accent-(--ui-accent)"
         :checked="query.overdue === '1'"
         @change="update({ overdue: $event.target.checked ? '1' : '' })"
       />
@@ -125,7 +125,7 @@ function statusText(issue) {
       role="region"
       :aria-label="t('audits.tableAria')"
     >
-      <table class="w-full min-w-[60rem] border-collapse text-sm">
+      <table class="w-full min-w-240 border-collapse text-sm">
         <thead>
           <tr class="border-b border-border text-left text-xs font-medium text-secondary">
             <th scope="col" class="px-4 py-3">{{ t('audits.finding') }}</th>

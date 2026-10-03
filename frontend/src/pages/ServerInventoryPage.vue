@@ -104,7 +104,7 @@ const hasFilters = computed(() => Object.keys(query.value).some((k) => k !== 'pa
       role="region"
       :aria-label="t('servers.tableAria')"
     >
-      <table class="w-full min-w-[48rem] border-collapse text-sm">
+      <table class="w-full min-w-3xl border-collapse text-sm">
         <thead>
           <tr class="border-b border-border text-left text-xs font-medium text-secondary">
             <th scope="col" class="px-4 py-3">{{ t('servers.hostname') }}</th>

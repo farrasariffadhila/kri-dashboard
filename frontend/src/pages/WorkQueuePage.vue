@@ -72,7 +72,7 @@ const sections = computed(() => {
         {{ t('workQueue.empty') }}
       </p>
       <div v-else class="relative mt-3 overflow-x-auto border-y border-border bg-surface" tabindex="0" role="region" :aria-label="section.title">
-        <table class="w-full min-w-[48rem] border-collapse text-sm">
+        <table class="w-full min-w-3xl border-collapse text-sm">
           <thead>
             <tr class="border-b border-border text-left text-xs font-medium text-secondary">
               <th scope="col" class="px-4 py-3">{{ t('audits.finding') }}</th>

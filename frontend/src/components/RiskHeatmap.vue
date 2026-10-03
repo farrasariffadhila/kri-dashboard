@@ -24,7 +24,7 @@ const cellTone = {
 <template>
   <p class="mb-2 text-sm text-muted lg:hidden">{{ t('common.scrollHint') }}</p>
   <div class="relative overflow-x-auto border-y border-border bg-surface">
-    <table class="w-full min-w-[56rem] border-collapse text-left">
+    <table class="w-full min-w-4xl border-collapse text-left">
       <caption class="sr-only">{{ t('heatmap.caption') }}</caption>
       <thead>
         <tr class="border-b border-border align-bottom text-xs font-medium text-secondary">

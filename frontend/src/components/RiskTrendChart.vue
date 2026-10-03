@@ -205,7 +205,7 @@ onBeforeUnmount(() => chart?.destroy())
     </button>
 
     <div v-show="showTable" id="trend-table" class="mt-4 relative overflow-x-auto" tabindex="0" role="region" :aria-label="t('trend.tableAria')">
-      <table class="w-full min-w-[44rem] border-collapse text-sm">
+      <table class="w-full min-w-176 border-collapse text-sm">
         <caption class="pb-2 text-left text-xs text-muted">
           {{ t('trend.tableCaption', { name: history.department.name }) }}
         </caption>

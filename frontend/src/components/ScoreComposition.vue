@@ -95,7 +95,7 @@ const TICKS = [0, 25, 50, 75, 100]
     </button>
 
     <div v-show="showTable" id="composition-table" class="relative mt-3 overflow-x-auto" tabindex="0" role="region" :aria-label="t('composition.tableAria')">
-      <table class="w-full min-w-[40rem] border-collapse text-sm">
+      <table class="w-full min-w-160 border-collapse text-sm">
         <caption class="pb-2 text-left text-xs text-muted">{{ t('composition.tableCaption') }}</caption>
         <thead>
           <tr class="border-b border-border text-left text-xs font-medium text-secondary">

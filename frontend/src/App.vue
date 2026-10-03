@@ -91,7 +91,7 @@ watch(locale, () => updateDocumentTitle())
     <dialog
       ref="drawer"
       :aria-label="t('app.navMenu')"
-      class="m-0 h-full max-h-none w-72 max-w-[85vw] border-0 p-0 backdrop:bg-[var(--ui-backdrop)] lg:hidden"
+      class="m-0 h-full max-h-none w-72 max-w-[85vw] border-0 p-0 backdrop:bg-(--ui-backdrop) lg:hidden"
       @click="onDrawerClick"
       @close="onDrawerClose"
     >
@@ -130,7 +130,7 @@ watch(locale, () => updateDocumentTitle())
       </header>
 
       <main id="konten" tabindex="-1" class="px-4 pb-16 pt-8 focus:outline-none sm:px-8">
-        <div class="mx-auto max-w-[90rem]">
+        <div class="mx-auto max-w-360">
           <div v-if="riskStore.error" role="alert" class="max-w-2xl border-l-4 border-critical-mark bg-critical-bg px-5 py-4">
             <p class="font-semibold text-critical-fg">{{ t('common.loadFailed') }}</p>
             <p class="mt-1 text-secondary">{{ t('common.checkApi') }}</p>

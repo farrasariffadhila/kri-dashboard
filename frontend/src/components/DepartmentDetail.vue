@@ -49,7 +49,7 @@ function overdueText(days) {
       </component>
       <p class="mt-1 max-w-prose text-secondary">{{ t('detail.whyText') }}</p>
       <div class="relative mt-4 overflow-x-auto" tabindex="0" role="region" :aria-label="t('detail.tableAria')">
-        <table class="w-full min-w-[44rem] border-collapse text-sm">
+        <table class="w-full min-w-176 border-collapse text-sm">
           <thead>
             <tr class="border-b border-border text-left text-xs font-medium text-secondary">
               <th scope="col" class="py-2 pr-4">{{ t('detail.indicator') }}</th>
@@ -109,7 +109,7 @@ function overdueText(days) {
         <template v-else>{{ t('detail.noOpenAudits') }}</template>
       </p>
       <div v-if="audits.value > 0" class="relative mt-4 overflow-x-auto" tabindex="0" role="region" :aria-label="t('detail.openAuditsAria')">
-        <table class="w-full min-w-[44rem] border-collapse text-sm">
+        <table class="w-full min-w-176 border-collapse text-sm">
           <thead>
             <tr class="border-b border-border text-left text-xs font-medium text-secondary">
               <th scope="col" class="py-2 pr-4">{{ t('detail.finding') }}</th>

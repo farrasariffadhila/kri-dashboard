@@ -38,7 +38,7 @@ const ANCHORS = [
     <section aria-labelledby="m-kri">
       <h2 id="m-kri" class="font-serif text-xl font-semibold">{{ t('methodology.s1') }}</h2>
       <div class="relative mt-4 overflow-x-auto" tabindex="0" role="region" :aria-label="t('methodology.s1Aria')">
-        <table class="w-full min-w-[36rem] border-collapse text-sm">
+        <table class="w-full min-w-xl border-collapse text-sm">
           <thead>
             <tr class="border-b border-border text-left text-xs font-medium text-secondary">
               <th scope="col" class="py-2 pr-4">{{ t('detail.indicator') }}</th>
@@ -73,7 +73,7 @@ const ANCHORS = [
       <p class="mt-1 text-sm text-muted">{{ t('methodology.formulaHelp') }}</p>
 
       <div class="relative mt-6 overflow-x-auto" tabindex="0" role="region" :aria-label="t('methodology.thresholdsAria')">
-        <table class="w-full min-w-[40rem] border-collapse text-sm">
+        <table class="w-full min-w-160 border-collapse text-sm">
           <caption class="pb-2 text-left text-xs text-muted">{{ t('methodology.thresholdsCaption') }}</caption>
           <thead>
             <tr class="border-b border-border text-left text-xs font-medium text-secondary">
@@ -108,7 +108,7 @@ const ANCHORS = [
         {{ t('methodology.s4', { name: example.name, month: formatMonthLong(summary.reporting_month) }) }}
       </h2>
       <div class="relative mt-4 overflow-x-auto" tabindex="0" role="region" :aria-label="t('methodology.s4Aria')">
-        <table class="w-full min-w-[36rem] border-collapse text-sm">
+        <table class="w-full min-w-xl border-collapse text-sm">
           <thead>
             <tr class="border-b border-border text-left text-xs font-medium text-secondary">
               <th scope="col" class="py-2 pr-4">{{ t('detail.indicator') }}</th>
@@ -158,7 +158,7 @@ const ANCHORS = [
             <dd>{{ localized(sources[kri.key].cadence) }}</dd>
           </dl>
           <div class="relative mt-3 overflow-x-auto" tabindex="0" role="region" :aria-label="t('methodology.importsAria', { name: kri.label })">
-            <table class="w-full min-w-[36rem] table-fixed border-collapse text-sm">
+            <table class="w-full min-w-xl table-fixed border-collapse text-sm">
               <caption class="pb-1 text-left text-xs text-muted">{{ t('methodology.lastImport') }}</caption>
               <thead>
                 <tr class="border-b border-border text-left text-xs font-medium text-secondary">

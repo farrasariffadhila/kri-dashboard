@@ -42,7 +42,7 @@ async function onChange(event) {
     <label for="persona" class="shrink-0 text-muted sm:hidden md:inline">{{ t('demo.viewAs') }}</label>
     <select
       id="persona"
-      class="min-w-0 flex-1 rounded-md border border-control bg-surface px-2 py-1.5 text-ink disabled:opacity-60 sm:max-w-[18rem] sm:flex-none"
+      class="min-w-0 flex-1 rounded-md border border-control bg-surface px-2 py-1.5 text-ink disabled:opacity-60 sm:max-w-2xs sm:flex-none"
       :value="currentId"
       :disabled="switching"
       :aria-label="t('demo.viewAs')"

@@ -1,0 +1,542 @@
+id,department_id,title,auditor,risk_level,status,identified_date,due_date,closed_date
+1,1,Agen EDR pada sebagian endpoint tidak ter-update,Saka Permata,Medium,Closed,2025-04-08,2025-06-07,2025-05-24
+2,1,Sertifikat TLS aplikasi internal kedaluwarsa,Bambang Kurniawan,Medium,Closed,2025-04-11,2025-06-10,2025-07-10
+3,1,Banner peringatan belum dipasang pada halaman login,Bahuwarna Suwarno,Low,Closed,2025-04-14,2025-07-13,2025-06-01
+4,1,Akun karyawan yang sudah resign masih aktif di aplikasi inti,Hana Fujiati,High,Closed,2025-04-18,2025-05-18,2025-05-06
+5,1,Review hak akses pengguna tidak dilakukan setiap triwulan,Bambang Kurniawan,Medium,Closed,2025-04-21,2025-06-20,2025-06-04
+6,1,Hasil vulnerability scan tidak ditindaklanjuti,Wahyu Uwais,Medium,Closed,2025-04-22,2025-06-21,2025-07-04
+7,1,Server produksi menjalankan sistem operasi end-of-life,Bahuwarna Suwarno,High,Closed,2025-04-24,2025-05-24,2025-05-26
+8,1,Sesi aplikasi yang idle tidak otomatis logout,Bambang Kurniawan,Medium,Closed,2025-04-25,2025-06-24,2025-07-18
+9,1,Agen EDR pada sebagian endpoint tidak ter-update,Hana Fujiati,Medium,Closed,2025-05-02,2025-07-01,2025-05-24
+10,1,Sertifikat TLS aplikasi internal kedaluwarsa,Bahuwarna Suwarno,Medium,Closed,2025-05-03,2025-07-02,2025-06-29
+11,1,Patch keamanan kritikal belum diterapkan lebih dari 30 hari,Bella Sudiati,High,Closed,2025-05-09,2025-06-08,2025-06-15
+12,1,Sesi aplikasi yang idle tidak otomatis logout,Panca Oktaviani,Medium,Closed,2025-05-12,2025-07-11,2025-08-03
+13,1,Penamaan server tidak sesuai standar konfigurasi,Bella Sudiati,Low,Closed,2025-05-15,2025-08-13,2025-06-26
+14,1,Agen EDR pada sebagian endpoint tidak ter-update,Saka Permata,Medium,Closed,2025-05-21,2025-07-20,2025-06-16
+15,1,Agen EDR pada sebagian endpoint tidak ter-update,Saka Permata,Medium,Closed,2025-05-24,2025-07-23,2025-07-06
+16,1,Bukti review log tidak disetujui atasan,Bella Sudiati,Low,Closed,2025-05-24,2025-08-22,2025-06-26
+17,1,Sertifikat TLS aplikasi internal kedaluwarsa,Hana Fujiati,Medium,Closed,2025-05-27,2025-07-26,2025-08-18
+18,1,Kebijakan password belum mewajibkan minimal 12 karakter,Usyi Kuswoyo,Medium,Closed,2025-05-28,2025-07-27,2025-07-12
+19,1,Hasil vulnerability scan tidak ditindaklanjuti,Usyi Kuswoyo,Medium,Closed,2025-05-30,2025-07-29,2025-06-25
+20,1,Jadwal pelatihan security awareness tidak terdokumentasi,Saka Permata,Low,Closed,2025-06-01,2025-08-30,2025-08-05
+21,1,Monitoring kapasitas server tidak memiliki ambang peringatan,Hana Fujiati,Medium,Closed,2025-06-06,2025-08-05,2025-07-22
+22,1,Disaster Recovery Plan belum diuji dalam 12 bulan terakhir,Zulaikha Megantara,High,Closed,2025-06-07,2025-07-07,2025-07-11
+23,1,Developer memiliki akses langsung ke lingkungan produksi,Saka Permata,Medium,Closed,2025-06-16,2025-08-15,2025-10-21
+24,1,Perubahan darurat tidak melalui prosedur change management,Saka Permata,Medium,Closed,2025-06-29,2025-08-28,2025-08-06
+25,1,SOP operasional TI belum diperbarui sejak 2023,Bella Sudiati,Low,Closed,2025-06-30,2025-09-28,2025-10-03
+26,1,Kontrak vendor belum mencantumkan klausul kerahasiaan data,Saka Permata,Low,Closed,2025-07-05,2025-10-03,2025-10-04
+27,1,Review hak akses pengguna tidak dilakukan setiap triwulan,Zulaikha Megantara,Medium,Closed,2025-07-09,2025-09-07,2025-09-29
+28,1,Bukti review log tidak disetujui atasan,Zulaikha Megantara,Low,Closed,2025-07-13,2025-10-11,2025-10-11
+29,1,Sesi aplikasi yang idle tidak otomatis logout,Saka Permata,Medium,Closed,2025-07-24,2025-09-22,2025-09-08
+30,1,Server produksi menjalankan sistem operasi end-of-life,Usyi Kuswoyo,High,Closed,2025-07-25,2025-08-24,2025-09-12
+31,1,Kredensial aplikasi tersimpan plaintext di file konfigurasi,Bambang Kurniawan,High,Open,2025-07-30,2025-08-29,
+32,1,Penamaan server tidak sesuai standar konfigurasi,Pandu Nugroho,Low,Closed,2025-07-30,2025-10-28,2025-10-03
+33,1,Akun karyawan yang sudah resign masih aktif di aplikasi inti,Wahyu Uwais,High,Closed,2025-07-31,2025-08-30,2025-08-20
+34,1,Jadwal pelatihan security awareness tidak terdokumentasi,Wahyu Uwais,Low,Closed,2025-08-04,2025-11-02,2025-09-10
+35,1,Penamaan server tidak sesuai standar konfigurasi,Bambang Kurniawan,Low,Closed,2025-08-04,2025-11-02,2025-10-20
+36,1,Bukti review log tidak disetujui atasan,Bambang Kurniawan,Low,Closed,2025-08-05,2025-11-03,2025-11-05
+37,1,Label klasifikasi data belum diterapkan pada dokumen,Bambang Kurniawan,Low,Closed,2025-08-06,2025-11-04,2025-11-01
+38,1,Label klasifikasi data belum diterapkan pada dokumen,Usyi Kuswoyo,Low,Closed,2025-08-09,2025-11-07,2025-10-27
+39,1,Monitoring kapasitas server tidak memiliki ambang peringatan,Pandu Nugroho,Medium,Closed,2025-08-09,2025-10-08,2025-10-09
+40,1,Agen EDR pada sebagian endpoint tidak ter-update,Zulaikha Megantara,Medium,Closed,2025-08-11,2025-10-10,2025-10-20
+41,1,Monitoring kapasitas server tidak memiliki ambang peringatan,Panca Oktaviani,Medium,Closed,2025-08-19,2025-10-18,2025-09-10
+42,1,Developer memiliki akses langsung ke lingkungan produksi,Saka Permata,Medium,Closed,2025-08-27,2025-10-26,2025-10-10
+43,1,Perubahan darurat tidak melalui prosedur change management,Hana Fujiati,Medium,Closed,2025-08-28,2025-10-27,2025-10-15
+44,1,Penamaan server tidak sesuai standar konfigurasi,Umaya Rahimah,Low,Closed,2025-08-29,2025-11-27,2026-03-11
+45,1,Bukti review log tidak disetujui atasan,Bahuwarna Suwarno,Low,Closed,2025-08-29,2025-11-27,2026-01-16
+46,1,Kebijakan password belum mewajibkan minimal 12 karakter,Hana Fujiati,Medium,Closed,2025-08-30,2025-10-29,2025-10-09
+47,1,Perubahan darurat tidak melalui prosedur change management,Bambang Kurniawan,Medium,Closed,2025-08-30,2025-10-29,2025-10-22
+48,1,Developer memiliki akses langsung ke lingkungan produksi,Aris Mulyani,Medium,Closed,2025-08-30,2025-10-29,2025-10-13
+49,1,Jadwal pelatihan security awareness tidak terdokumentasi,Pandu Nugroho,Low,Closed,2025-09-03,2025-12-02,2025-12-21
+50,1,Review hak akses pengguna tidak dilakukan setiap triwulan,Panca Oktaviani,Medium,Closed,2025-09-05,2025-11-04,2025-11-08
+51,1,Patch keamanan kritikal belum diterapkan lebih dari 30 hari,Aris Mulyani,High,Closed,2025-09-11,2025-10-11,2025-09-30
+52,1,Developer memiliki akses langsung ke lingkungan produksi,Zulaikha Megantara,Medium,Closed,2025-09-16,2025-11-15,2025-10-21
+53,1,Kebijakan password belum mewajibkan minimal 12 karakter,Aris Mulyani,Medium,Closed,2025-09-21,2025-11-20,2025-10-21
+54,1,Label klasifikasi data belum diterapkan pada dokumen,Pandu Nugroho,Low,Closed,2025-09-23,2025-12-22,2026-01-11
+55,1,Akun karyawan yang sudah resign masih aktif di aplikasi inti,Bella Sudiati,High,Closed,2025-09-24,2025-10-24,2025-10-11
+56,1,Developer memiliki akses langsung ke lingkungan produksi,Zulaikha Megantara,Medium,Closed,2025-09-25,2025-11-24,2025-11-06
+57,1,Kontrak vendor belum mencantumkan klausul kerahasiaan data,Pandu Nugroho,Low,Closed,2025-09-30,2025-12-29,2025-12-31
+58,1,Kontrak vendor belum mencantumkan klausul kerahasiaan data,Pandu Nugroho,Low,Closed,2025-10-06,2026-01-04,2026-01-02
+59,1,Bukti review log tidak disetujui atasan,Zulaikha Megantara,Low,Closed,2025-10-08,2026-01-06,2025-12-31
+60,1,Inventaris aset TI tidak mutakhir,Usyi Kuswoyo,Medium,Open,2025-10-22,2025-12-21,
+61,1,SOP operasional TI belum diperbarui sejak 2023,Wahyu Uwais,Low,Closed,2025-10-24,2026-01-22,2025-11-24
+62,1,Akses administrator server produksi tanpa MFA,Pandu Nugroho,High,Closed,2025-10-29,2025-11-28,2025-11-23
+63,1,Label klasifikasi data belum diterapkan pada dokumen,Aris Mulyani,Low,Closed,2025-10-29,2026-01-27,2026-04-25
+64,1,Hasil vulnerability scan tidak ditindaklanjuti,Wahyu Uwais,Medium,Closed,2025-10-31,2025-12-30,2026-01-06
+65,1,Kredensial aplikasi tersimpan plaintext di file konfigurasi,Saka Permata,High,Closed,2025-11-07,2025-12-07,2025-12-13
+66,1,Kebijakan password belum mewajibkan minimal 12 karakter,Hana Fujiati,Medium,Closed,2025-11-09,2026-01-08,2025-12-25
+67,1,Sertifikat TLS aplikasi internal kedaluwarsa,Usyi Kuswoyo,Medium,Closed,2025-11-21,2026-01-20,2026-01-10
+68,1,Developer memiliki akses langsung ke lingkungan produksi,Bella Sudiati,Medium,Closed,2025-11-21,2026-01-20,2026-01-05
+69,1,Inventaris aset TI tidak mutakhir,Bella Sudiati,Medium,Closed,2025-11-22,2026-01-21,2026-04-28
+70,1,Patch keamanan kritikal belum diterapkan lebih dari 30 hari,Panca Oktaviani,High,Closed,2025-11-28,2025-12-28,2025-12-24
+71,1,Review hak akses pengguna tidak dilakukan setiap triwulan,Bella Sudiati,Medium,Closed,2025-12-09,2026-02-07,2026-01-03
+72,1,Penamaan server tidak sesuai standar konfigurasi,Pandu Nugroho,Low,Closed,2025-12-11,2026-03-11,2026-01-21
+73,1,Kontrak vendor belum mencantumkan klausul kerahasiaan data,Panca Oktaviani,Low,Closed,2025-12-20,2026-03-20,2026-03-14
+74,1,Hasil vulnerability scan tidak ditindaklanjuti,Zulaikha Megantara,Medium,Closed,2025-12-26,2026-02-24,2026-02-19
+75,1,Agen EDR pada sebagian endpoint tidak ter-update,Panca Oktaviani,Medium,Closed,2026-01-03,2026-03-04,2026-02-19
+76,1,Password default pada perangkat jaringan belum diganti,Umaya Rahimah,High,Closed,2026-01-05,2026-02-04,2026-02-10
+77,1,Password default pada perangkat jaringan belum diganti,Panca Oktaviani,High,Closed,2026-01-08,2026-02-07,2026-02-23
+78,1,Firewall rule mengizinkan akses any-any ke segmen produksi,Wahyu Uwais,High,Closed,2026-01-18,2026-02-17,2026-02-02
+79,1,Firewall rule mengizinkan akses any-any ke segmen produksi,Bahuwarna Suwarno,High,Closed,2026-01-19,2026-02-18,2026-01-31
+80,1,Bukti review log tidak disetujui atasan,Bella Sudiati,Low,Closed,2026-01-22,2026-04-22,2026-04-04
+81,1,Review hak akses pengguna tidak dilakukan setiap triwulan,Saka Permata,Medium,Open,2026-01-22,2026-03-23,
+82,1,Bukti review log tidak disetujui atasan,Wahyu Uwais,Low,Closed,2026-01-24,2026-04-24,2026-06-16
+83,1,Log akses fisik ruang server tidak lengkap,Saka Permata,Low,Closed,2026-01-24,2026-04-24,2026-05-03
+84,1,Patch keamanan kritikal belum diterapkan lebih dari 30 hari,Bahuwarna Suwarno,High,Closed,2026-01-27,2026-02-26,2026-02-13
+85,1,Developer memiliki akses langsung ke lingkungan produksi,Pandu Nugroho,Medium,Closed,2026-01-29,2026-03-30,2026-03-10
+86,1,Penamaan server tidak sesuai standar konfigurasi,Bella Sudiati,Low,Closed,2026-01-31,2026-05-01,2026-04-17
+87,1,Kredensial aplikasi tersimpan plaintext di file konfigurasi,Bahuwarna Suwarno,High,Closed,2026-02-02,2026-03-04,2026-02-16
+88,1,Penamaan server tidak sesuai standar konfigurasi,Wahyu Uwais,Low,Closed,2026-02-05,2026-05-06,2026-06-02
+89,1,Akses administrator server produksi tanpa MFA,Aris Mulyani,High,Closed,2026-02-13,2026-03-15,2026-03-18
+90,1,Bukti review log tidak disetujui atasan,Hana Fujiati,Low,Closed,2026-02-17,2026-05-18,2026-05-26
+91,1,Patch keamanan kritikal belum diterapkan lebih dari 30 hari,Bahuwarna Suwarno,High,Closed,2026-02-20,2026-03-22,2026-03-10
+92,1,Bukti review log tidak disetujui atasan,Pandu Nugroho,Low,Open,2026-02-28,2026-05-29,
+93,1,Bukti review log tidak disetujui atasan,Panca Oktaviani,Low,Open,2026-03-02,2026-05-31,
+94,1,Developer memiliki akses langsung ke lingkungan produksi,Aris Mulyani,Medium,Closed,2026-03-02,2026-05-01,2026-05-02
+95,1,Hasil vulnerability scan tidak ditindaklanjuti,Hana Fujiati,Medium,Closed,2026-03-08,2026-05-07,2026-04-08
+96,1,Sertifikat TLS aplikasi internal kedaluwarsa,Bella Sudiati,Medium,Closed,2026-03-12,2026-05-11,2026-04-14
+97,1,Sesi aplikasi yang idle tidak otomatis logout,Bambang Kurniawan,Medium,Closed,2026-03-17,2026-05-16,2026-04-11
+98,1,Perubahan darurat tidak melalui prosedur change management,Bambang Kurniawan,Medium,Closed,2026-03-19,2026-05-18,2026-05-18
+99,1,Monitoring kapasitas server tidak memiliki ambang peringatan,Zulaikha Megantara,Medium,Closed,2026-03-19,2026-05-18,2026-05-30
+100,1,Server produksi menjalankan sistem operasi end-of-life,Aris Mulyani,High,Closed,2026-03-19,2026-04-18,2026-04-10
+101,1,Patch keamanan kritikal belum diterapkan lebih dari 30 hari,Panca Oktaviani,High,Closed,2026-03-20,2026-04-19,2026-04-14
+102,1,Password default pada perangkat jaringan belum diganti,Pandu Nugroho,High,Closed,2026-03-23,2026-04-22,2026-05-06
+103,1,Patch keamanan kritikal belum diterapkan lebih dari 30 hari,Hana Fujiati,High,Closed,2026-03-24,2026-04-23,2026-04-21
+104,1,Sesi aplikasi yang idle tidak otomatis logout,Saka Permata,Medium,Closed,2026-03-27,2026-05-26,2026-04-29
+105,1,Jadwal pelatihan security awareness tidak terdokumentasi,Panca Oktaviani,Low,Closed,2026-04-08,2026-07-07,2026-06-15
+106,1,Agen EDR pada sebagian endpoint tidak ter-update,Panca Oktaviani,Medium,Closed,2026-04-11,2026-06-10,2026-07-03
+107,1,Review hak akses pengguna tidak dilakukan setiap triwulan,Aris Mulyani,Medium,Closed,2026-04-12,2026-06-11,2026-05-20
+108,1,Password default pada perangkat jaringan belum diganti,Wahyu Uwais,High,Closed,2026-04-19,2026-05-19,2026-05-14
+109,1,Monitoring kapasitas server tidak memiliki ambang peringatan,Pandu Nugroho,Medium,Closed,2026-04-23,2026-06-22,2026-05-27
+110,1,Banner peringatan belum dipasang pada halaman login,Aris Mulyani,Low,Closed,2026-05-02,2026-07-31,2026-06-12
+111,1,Inventaris aset TI tidak mutakhir,Usyi Kuswoyo,Medium,Open,2026-05-06,2026-07-05,
+112,1,Banner peringatan belum dipasang pada halaman login,Hana Fujiati,Low,Open,2026-05-07,2026-08-05,
+113,1,Sesi aplikasi yang idle tidak otomatis logout,Hana Fujiati,Medium,Closed,2026-05-07,2026-07-06,2026-06-21
+114,1,Kebijakan password belum mewajibkan minimal 12 karakter,Bahuwarna Suwarno,Medium,Closed,2026-05-10,2026-07-09,2026-07-01
+115,1,Penamaan server tidak sesuai standar konfigurasi,Usyi Kuswoyo,Low,Open,2026-05-23,2026-08-21,
+116,1,Agen EDR pada sebagian endpoint tidak ter-update,Hana Fujiati,Medium,Closed,2026-05-24,2026-07-23,2026-08-14
+117,1,Perubahan darurat tidak melalui prosedur change management,Umaya Rahimah,Medium,Closed,2026-05-26,2026-07-25,2026-07-15
+118,1,Banner peringatan belum dipasang pada halaman login,Panca Oktaviani,Low,Open,2026-06-01,2026-08-30,
+119,1,Hasil vulnerability scan tidak ditindaklanjuti,Zulaikha Megantara,Medium,Closed,2026-06-02,2026-08-01,2026-07-02
+120,1,Label klasifikasi data belum diterapkan pada dokumen,Hana Fujiati,Low,Closed,2026-06-09,2026-09-07,2026-09-02
+121,1,Jadwal pelatihan security awareness tidak terdokumentasi,Aris Mulyani,Low,Closed,2026-06-17,2026-09-15,2026-08-23
+122,1,Review hak akses pengguna tidak dilakukan setiap triwulan,Bahuwarna Suwarno,Medium,Closed,2026-06-17,2026-08-16,2026-07-19
+123,1,Agen EDR pada sebagian endpoint tidak ter-update,Bella Sudiati,Medium,Closed,2026-06-19,2026-08-18,2026-07-04
+124,1,Akses administrator server produksi tanpa MFA,Wahyu Uwais,High,Closed,2026-06-29,2026-07-29,2026-07-12
+125,1,Inventaris aset TI tidak mutakhir,Aris Mulyani,Medium,Open,2026-07-01,2026-08-30,
+126,1,Patch keamanan kritikal belum diterapkan lebih dari 30 hari,Bambang Kurniawan,High,Closed,2026-07-07,2026-08-06,2026-07-29
+127,1,Penamaan server tidak sesuai standar konfigurasi,Bella Sudiati,Low,Closed,2026-07-09,2026-10-07,2026-09-23
+128,1,Sertifikat TLS aplikasi internal kedaluwarsa,Aris Mulyani,Medium,Closed,2026-07-16,2026-09-14,2026-09-16
+129,1,Audit log database produksi tidak diaktifkan,Usyi Kuswoyo,High,Closed,2026-07-17,2026-08-16,2026-08-04
+130,1,Developer memiliki akses langsung ke lingkungan produksi,Bahuwarna Suwarno,Medium,Closed,2026-07-22,2026-09-20,2026-09-04
+131,1,Review hak akses pengguna tidak dilakukan setiap triwulan,Bahuwarna Suwarno,Medium,Closed,2026-07-23,2026-09-21,2026-09-23
+132,1,Agen EDR pada sebagian endpoint tidak ter-update,Hana Fujiati,Medium,Closed,2026-07-24,2026-09-22,2026-08-21
+133,1,Password default pada perangkat jaringan belum diganti,Panca Oktaviani,High,Closed,2026-07-25,2026-08-24,2026-08-29
+134,1,Backup database produksi tidak pernah diuji restore,Panca Oktaviani,High,Closed,2026-07-26,2026-08-25,2026-08-19
+135,1,Log akses fisik ruang server tidak lengkap,Usyi Kuswoyo,Low,Open,2026-07-26,2026-10-24,
+136,1,Monitoring kapasitas server tidak memiliki ambang peringatan,Zulaikha Megantara,Medium,Closed,2026-08-02,2026-10-01,2026-09-21
+137,1,Perubahan darurat tidak melalui prosedur change management,Bambang Kurniawan,Medium,Open,2026-08-05,2026-10-04,
+138,1,Log akses fisik ruang server tidak lengkap,Bambang Kurniawan,Low,Closed,2026-08-13,2026-11-11,2026-09-24
+139,1,Sesi aplikasi yang idle tidak otomatis logout,Pandu Nugroho,Medium,Closed,2026-08-14,2026-10-13,2026-09-10
+140,1,Bukti review log tidak disetujui atasan,Aris Mulyani,Low,Open,2026-08-22,2026-11-20,
+141,1,Monitoring kapasitas server tidak memiliki ambang peringatan,Wahyu Uwais,Medium,Open,2026-08-26,2026-10-25,
+142,1,Jadwal pelatihan security awareness tidak terdokumentasi,Zulaikha Megantara,Low,Open,2026-08-30,2026-11-28,
+143,1,Perubahan darurat tidak melalui prosedur change management,Wahyu Uwais,Medium,Open,2026-09-01,2026-10-31,
+144,1,Kebijakan password belum mewajibkan minimal 12 karakter,Usyi Kuswoyo,Medium,Open,2026-09-05,2026-11-04,
+145,1,Audit log database produksi tidak diaktifkan,Usyi Kuswoyo,High,Open,2026-09-06,2026-10-06,
+146,1,Akses administrator server produksi tanpa MFA,Wahyu Uwais,High,Open,2026-09-14,2026-10-14,
+147,1,Hasil vulnerability scan tidak ditindaklanjuti,Bella Sudiati,Medium,Open,2026-09-15,2026-11-14,
+148,1,Server produksi menjalankan sistem operasi end-of-life,Saka Permata,High,Open,2026-09-24,2026-10-24,
+149,1,Penamaan server tidak sesuai standar konfigurasi,Panca Oktaviani,Low,Open,2026-09-27,2026-12-26,
+150,1,Monitoring kapasitas server tidak memiliki ambang peringatan,Bella Sudiati,Medium,Open,2026-09-28,2026-11-27,
+151,2,Jadwal pelatihan security awareness tidak terdokumentasi,Pandu Nugroho,Low,Closed,2025-04-12,2025-07-11,2025-05-27
+152,2,Kontrak vendor belum mencantumkan klausul kerahasiaan data,Pandu Nugroho,Low,Closed,2025-05-05,2025-08-03,2025-08-30
+153,2,Label klasifikasi data belum diterapkan pada dokumen,Aris Mulyani,Low,Open,2025-05-08,2025-08-06,
+154,2,Sesi aplikasi yang idle tidak otomatis logout,Bambang Kurniawan,Medium,Closed,2025-05-09,2025-07-08,2025-08-01
+155,2,Agen EDR pada sebagian endpoint tidak ter-update,Saka Permata,Medium,Closed,2025-05-16,2025-07-15,2025-06-08
+156,2,Sesi aplikasi yang idle tidak otomatis logout,Bella Sudiati,Medium,Closed,2025-05-16,2025-07-15,2025-06-09
+157,2,Perubahan darurat tidak melalui prosedur change management,Saka Permata,Medium,Closed,2025-05-17,2025-07-16,2025-07-25
+158,2,Developer memiliki akses langsung ke lingkungan produksi,Wahyu Uwais,Medium,Closed,2025-05-17,2025-07-16,2025-06-20
+159,2,Sertifikat TLS aplikasi internal kedaluwarsa,Panca Oktaviani,Medium,Closed,2025-05-21,2025-07-20,2025-06-03
+160,2,Patch keamanan kritikal belum diterapkan lebih dari 30 hari,Panca Oktaviani,High,Closed,2025-05-30,2025-06-29,2025-06-25
+161,2,Akun karyawan yang sudah resign masih aktif di aplikasi inti,Aris Mulyani,High,Closed,2025-05-31,2025-06-30,2025-07-03
+162,2,Audit log database produksi tidak diaktifkan,Bahuwarna Suwarno,High,Closed,2025-06-04,2025-07-04,2025-06-23
+163,2,Akun karyawan yang sudah resign masih aktif di aplikasi inti,Bella Sudiati,High,Closed,2025-06-09,2025-07-09,2025-06-19
+164,2,Perubahan darurat tidak melalui prosedur change management,Bella Sudiati,Medium,Closed,2025-06-11,2025-08-10,2025-07-14
+165,2,Sertifikat TLS aplikasi internal kedaluwarsa,Aris Mulyani,Medium,Closed,2025-06-12,2025-08-11,2025-08-06
+166,2,Review hak akses pengguna tidak dilakukan setiap triwulan,Bella Sudiati,Medium,Closed,2025-06-18,2025-08-17,2025-08-29
+167,2,Hasil vulnerability scan tidak ditindaklanjuti,Usyi Kuswoyo,Medium,Closed,2025-06-19,2025-08-18,2025-08-15
+168,2,Agen EDR pada sebagian endpoint tidak ter-update,Aris Mulyani,Medium,Closed,2025-06-30,2025-08-29,2025-08-26
+169,2,Bukti review log tidak disetujui atasan,Aris Mulyani,Low,Closed,2025-07-02,2025-09-30,2025-10-11
+170,2,Patch keamanan kritikal belum diterapkan lebih dari 30 hari,Bahuwarna Suwarno,High,Closed,2025-07-02,2025-08-01,2025-07-20
+171,2,SOP operasional TI belum diperbarui sejak 2023,Pandu Nugroho,Low,Closed,2025-07-06,2025-10-04,2025-10-17
+172,2,Inventaris aset TI tidak mutakhir,Panca Oktaviani,Medium,Closed,2025-07-17,2025-09-15,2025-08-09
+173,2,Monitoring kapasitas server tidak memiliki ambang peringatan,Aris Mulyani,Medium,Closed,2025-07-19,2025-09-17,2025-09-06
+174,2,Kontrak vendor belum mencantumkan klausul kerahasiaan data,Panca Oktaviani,Low,Closed,2025-07-19,2025-10-17,2025-09-05
+175,2,Penamaan server tidak sesuai standar konfigurasi,Umaya Rahimah,Low,Closed,2025-07-27,2025-10-25,2025-08-31
+176,2,Akses administrator server produksi tanpa MFA,Pandu Nugroho,High,Closed,2025-08-01,2025-08-31,2025-08-23
+177,2,Monitoring kapasitas server tidak memiliki ambang peringatan,Umaya Rahimah,Medium,Closed,2025-08-01,2025-09-30,2025-10-25
+178,2,SOP operasional TI belum diperbarui sejak 2023,Bambang Kurniawan,Low,Closed,2025-08-01,2025-10-30,2025-10-30
+179,2,Sesi aplikasi yang idle tidak otomatis logout,Aris Mulyani,Medium,Closed,2025-08-04,2025-10-03,2025-09-11
+180,2,Label klasifikasi data belum diterapkan pada dokumen,Bella Sudiati,Low,Closed,2025-08-07,2025-11-05,2025-09-10
+181,2,Review hak akses pengguna tidak dilakukan setiap triwulan,Usyi Kuswoyo,Medium,Closed,2025-08-09,2025-10-08,2025-09-15
+182,2,Developer memiliki akses langsung ke lingkungan produksi,Hana Fujiati,Medium,Closed,2025-08-10,2025-10-09,2025-10-31
+183,2,Sertifikat TLS aplikasi internal kedaluwarsa,Usyi Kuswoyo,Medium,Closed,2025-08-13,2025-10-12,2025-09-24
+184,2,Hasil vulnerability scan tidak ditindaklanjuti,Bambang Kurniawan,Medium,Closed,2025-08-14,2025-10-13,2025-11-10
+185,2,Patch keamanan kritikal belum diterapkan lebih dari 30 hari,Bella Sudiati,High,Closed,2025-08-14,2025-09-13,2025-08-27
+186,2,Kredensial aplikasi tersimpan plaintext di file konfigurasi,Bahuwarna Suwarno,High,Closed,2025-08-18,2025-09-17,2025-09-02
+187,2,Hasil vulnerability scan tidak ditindaklanjuti,Usyi Kuswoyo,Medium,Closed,2025-08-20,2025-10-19,2025-09-29
+188,2,Label klasifikasi data belum diterapkan pada dokumen,Hana Fujiati,Low,Closed,2025-08-20,2025-11-18,2025-11-11
+189,2,Perubahan darurat tidak melalui prosedur change management,Zulaikha Megantara,Medium,Closed,2025-08-29,2025-10-28,2025-09-30
+190,2,Firewall rule mengizinkan akses any-any ke segmen produksi,Bambang Kurniawan,High,Closed,2025-08-29,2025-09-28,2025-09-17
+191,2,Kontrak vendor belum mencantumkan klausul kerahasiaan data,Aris Mulyani,Low,Closed,2025-09-02,2025-12-01,2025-12-30
+192,2,Hasil vulnerability scan tidak ditindaklanjuti,Bambang Kurniawan,Medium,Closed,2025-09-05,2025-11-04,2025-10-14
+193,2,Jadwal pelatihan security awareness tidak terdokumentasi,Bambang Kurniawan,Low,Closed,2025-09-15,2025-12-14,2025-12-27
+194,2,Developer memiliki akses langsung ke lingkungan produksi,Hana Fujiati,Medium,Closed,2025-09-16,2025-11-15,2025-10-12
+195,2,SOP operasional TI belum diperbarui sejak 2023,Usyi Kuswoyo,Low,Closed,2025-09-16,2025-12-15,2025-11-20
+196,2,Audit log database produksi tidak diaktifkan,Wahyu Uwais,High,Closed,2025-09-25,2025-10-25,2025-10-21
+197,2,SOP operasional TI belum diperbarui sejak 2023,Wahyu Uwais,Low,Closed,2025-10-07,2026-01-05,2025-12-02
+198,2,Password default pada perangkat jaringan belum diganti,Hana Fujiati,High,Closed,2025-10-08,2025-11-07,2025-11-18
+199,2,Review hak akses pengguna tidak dilakukan setiap triwulan,Umaya Rahimah,Medium,Closed,2025-10-24,2025-12-23,2025-12-29
+200,2,Jadwal pelatihan security awareness tidak terdokumentasi,Saka Permata,Low,Closed,2025-10-29,2026-01-27,2025-12-06
+201,2,Jadwal pelatihan security awareness tidak terdokumentasi,Saka Permata,Low,Closed,2025-11-07,2026-02-05,2026-01-24
+202,2,Jadwal pelatihan security awareness tidak terdokumentasi,Bambang Kurniawan,Low,Closed,2025-11-10,2026-02-08,2026-01-11
+203,2,Akun karyawan yang sudah resign masih aktif di aplikasi inti,Bella Sudiati,High,Closed,2025-11-11,2025-12-11,2025-11-24
+204,2,Perubahan darurat tidak melalui prosedur change management,Panca Oktaviani,Medium,Open,2025-11-20,2026-01-19,
+205,2,Firewall rule mengizinkan akses any-any ke segmen produksi,Bahuwarna Suwarno,High,Closed,2025-11-21,2025-12-21,2025-12-09
+206,2,Penamaan server tidak sesuai standar konfigurasi,Bambang Kurniawan,Low,Open,2025-11-22,2026-02-20,
+207,2,Bukti review log tidak disetujui atasan,Bella Sudiati,Low,Closed,2025-11-22,2026-02-20,2026-01-11
+208,2,Sertifikat TLS aplikasi internal kedaluwarsa,Usyi Kuswoyo,Medium,Closed,2025-11-26,2026-01-25,2026-02-03
+209,2,Developer memiliki akses langsung ke lingkungan produksi,Hana Fujiati,Medium,Closed,2025-11-30,2026-01-29,2026-01-08
+210,2,Hasil vulnerability scan tidak ditindaklanjuti,Umaya Rahimah,Medium,Closed,2025-12-03,2026-02-01,2025-12-27
+211,2,Bukti review log tidak disetujui atasan,Bambang Kurniawan,Low,Closed,2025-12-06,2026-03-06,2026-03-01
+212,2,Developer memiliki akses langsung ke lingkungan produksi,Hana Fujiati,Medium,Closed,2025-12-09,2026-02-07,2026-01-08
+213,2,Backup database produksi tidak pernah diuji restore,Panca Oktaviani,High,Closed,2025-12-11,2026-01-10,2026-01-15
+214,2,Review hak akses pengguna tidak dilakukan setiap triwulan,Aris Mulyani,Medium,Closed,2025-12-16,2026-02-14,2026-01-04
+215,2,SOP operasional TI belum diperbarui sejak 2023,Bahuwarna Suwarno,Low,Closed,2025-12-19,2026-03-19,2026-02-09
+216,2,Sesi aplikasi yang idle tidak otomatis logout,Aris Mulyani,Medium,Closed,2025-12-26,2026-02-24,2026-02-04
+217,2,Agen EDR pada sebagian endpoint tidak ter-update,Bahuwarna Suwarno,Medium,Closed,2026-01-04,2026-03-05,2026-02-05
+218,2,Kebijakan password belum mewajibkan minimal 12 karakter,Pandu Nugroho,Medium,Closed,2026-01-12,2026-03-13,2026-03-07
+219,2,Sesi aplikasi yang idle tidak otomatis logout,Bahuwarna Suwarno,Medium,Closed,2026-01-15,2026-03-16,2026-03-30
+220,2,Review hak akses pengguna tidak dilakukan setiap triwulan,Bella Sudiati,Medium,Closed,2026-01-25,2026-03-26,2026-03-09
+221,2,Log akses fisik ruang server tidak lengkap,Panca Oktaviani,Low,Closed,2026-01-30,2026-04-30,2026-03-24
+222,2,Monitoring kapasitas server tidak memiliki ambang peringatan,Bahuwarna Suwarno,Medium,Closed,2026-01-31,2026-04-01,2026-03-08
+223,2,Sertifikat TLS aplikasi internal kedaluwarsa,Wahyu Uwais,Medium,Closed,2026-02-02,2026-04-03,2026-03-08
+224,2,Hasil vulnerability scan tidak ditindaklanjuti,Panca Oktaviani,Medium,Closed,2026-02-10,2026-04-11,2026-03-09
+225,2,Inventaris aset TI tidak mutakhir,Bella Sudiati,Medium,Closed,2026-02-14,2026-04-15,2026-04-04
+226,2,Review hak akses pengguna tidak dilakukan setiap triwulan,Bahuwarna Suwarno,Medium,Closed,2026-02-17,2026-04-18,2026-03-30
+227,2,SOP operasional TI belum diperbarui sejak 2023,Bahuwarna Suwarno,Low,Closed,2026-02-17,2026-05-18,2026-03-08
+228,2,Banner peringatan belum dipasang pada halaman login,Aris Mulyani,Low,Closed,2026-02-19,2026-05-20,2026-05-21
+229,2,Agen EDR pada sebagian endpoint tidak ter-update,Panca Oktaviani,Medium,Closed,2026-02-23,2026-04-24,2026-04-05
+230,2,Banner peringatan belum dipasang pada halaman login,Zulaikha Megantara,Low,Closed,2026-02-23,2026-05-24,2026-05-03
+231,2,Penamaan server tidak sesuai standar konfigurasi,Pandu Nugroho,Low,Closed,2026-02-28,2026-05-29,2026-04-27
+232,2,Firewall rule mengizinkan akses any-any ke segmen produksi,Saka Permata,High,Closed,2026-03-04,2026-04-03,2026-03-22
+233,2,Disaster Recovery Plan belum diuji dalam 12 bulan terakhir,Wahyu Uwais,High,Open,2026-03-08,2026-04-07,
+234,2,Perubahan darurat tidak melalui prosedur change management,Bahuwarna Suwarno,Medium,Closed,2026-03-14,2026-05-13,2026-04-17
+235,2,Log akses fisik ruang server tidak lengkap,Zulaikha Megantara,Low,Closed,2026-03-24,2026-06-22,2026-08-25
+236,2,Perubahan darurat tidak melalui prosedur change management,Panca Oktaviani,Medium,Closed,2026-03-27,2026-05-26,2026-04-22
+237,2,Hasil vulnerability scan tidak ditindaklanjuti,Umaya Rahimah,Medium,Closed,2026-04-01,2026-05-31,2026-05-14
+238,2,Monitoring kapasitas server tidak memiliki ambang peringatan,Zulaikha Megantara,Medium,Closed,2026-04-04,2026-06-03,2026-05-08
+239,2,Hasil vulnerability scan tidak ditindaklanjuti,Saka Permata,Medium,Closed,2026-04-05,2026-06-04,2026-04-28
+240,2,Hasil vulnerability scan tidak ditindaklanjuti,Bahuwarna Suwarno,Medium,Closed,2026-04-06,2026-06-05,2026-04-29
+241,2,Sertifikat TLS aplikasi internal kedaluwarsa,Bambang Kurniawan,Medium,Closed,2026-04-07,2026-06-06,2026-05-02
+242,2,Kebijakan password belum mewajibkan minimal 12 karakter,Bahuwarna Suwarno,Medium,Closed,2026-04-22,2026-06-21,2026-05-21
+243,2,Banner peringatan belum dipasang pada halaman login,Aris Mulyani,Low,Closed,2026-04-29,2026-07-28,2026-07-01
+244,2,Sertifikat TLS aplikasi internal kedaluwarsa,Wahyu Uwais,Medium,Closed,2026-04-30,2026-06-29,2026-06-09
+245,2,Sesi aplikasi yang idle tidak otomatis logout,Panca Oktaviani,Medium,Closed,2026-05-06,2026-07-05,2026-06-15
+246,2,Password default pada perangkat jaringan belum diganti,Bella Sudiati,High,Closed,2026-05-16,2026-06-15,2026-06-08
+247,2,Kebijakan password belum mewajibkan minimal 12 karakter,Panca Oktaviani,Medium,Closed,2026-05-19,2026-07-18,2026-07-03
+248,2,Agen EDR pada sebagian endpoint tidak ter-update,Bahuwarna Suwarno,Medium,Closed,2026-06-05,2026-08-04,2026-07-10
+249,2,Banner peringatan belum dipasang pada halaman login,Umaya Rahimah,Low,Closed,2026-06-05,2026-09-03,2026-07-02
+250,2,Audit log database produksi tidak diaktifkan,Wahyu Uwais,High,Closed,2026-06-18,2026-07-18,2026-07-30
+251,2,Monitoring kapasitas server tidak memiliki ambang peringatan,Wahyu Uwais,Medium,Closed,2026-06-23,2026-08-22,2026-07-22
+252,2,Sesi aplikasi yang idle tidak otomatis logout,Pandu Nugroho,Medium,Closed,2026-07-02,2026-08-31,2026-09-04
+253,2,Kebijakan password belum mewajibkan minimal 12 karakter,Bahuwarna Suwarno,Medium,Closed,2026-07-03,2026-09-01,2026-08-13
+254,2,Jadwal pelatihan security awareness tidak terdokumentasi,Zulaikha Megantara,Low,Closed,2026-07-10,2026-10-08,2026-09-04
+255,2,Jadwal pelatihan security awareness tidak terdokumentasi,Bella Sudiati,Low,Closed,2026-07-12,2026-10-10,2026-08-21
+256,2,Sertifikat TLS aplikasi internal kedaluwarsa,Bahuwarna Suwarno,Medium,Closed,2026-07-16,2026-09-14,2026-08-14
+257,2,Hasil vulnerability scan tidak ditindaklanjuti,Aris Mulyani,Medium,Open,2026-07-17,2026-09-15,
+258,2,Disaster Recovery Plan belum diuji dalam 12 bulan terakhir,Saka Permata,High,Closed,2026-07-17,2026-08-16,2026-08-28
+259,2,Banner peringatan belum dipasang pada halaman login,Zulaikha Megantara,Low,Closed,2026-07-26,2026-10-24,2026-09-04
+260,2,Bukti review log tidak disetujui atasan,Zulaikha Megantara,Low,Open,2026-07-27,2026-10-25,
+261,2,Bukti review log tidak disetujui atasan,Aris Mulyani,Low,Closed,2026-08-01,2026-10-30,2026-09-30
+262,2,Firewall rule mengizinkan akses any-any ke segmen produksi,Hana Fujiati,High,Closed,2026-08-09,2026-09-08,2026-08-27
+263,2,Kontrak vendor belum mencantumkan klausul kerahasiaan data,Zulaikha Megantara,Low,Open,2026-08-19,2026-11-17,
+264,2,Inventaris aset TI tidak mutakhir,Pandu Nugroho,Medium,Open,2026-08-21,2026-10-20,
+265,2,Kontrak vendor belum mencantumkan klausul kerahasiaan data,Usyi Kuswoyo,Low,Open,2026-08-24,2026-11-22,
+266,2,Kebijakan password belum mewajibkan minimal 12 karakter,Pandu Nugroho,Medium,Open,2026-08-25,2026-10-24,
+267,2,SOP operasional TI belum diperbarui sejak 2023,Zulaikha Megantara,Low,Open,2026-08-26,2026-11-24,
+268,2,Banner peringatan belum dipasang pada halaman login,Aris Mulyani,Low,Open,2026-08-28,2026-11-26,
+269,2,Perubahan darurat tidak melalui prosedur change management,Bella Sudiati,Medium,Open,2026-09-06,2026-11-05,
+270,2,Log akses fisik ruang server tidak lengkap,Hana Fujiati,Low,Open,2026-09-08,2026-12-07,
+271,2,Sertifikat TLS aplikasi internal kedaluwarsa,Wahyu Uwais,Medium,Open,2026-09-13,2026-11-12,
+272,2,Password default pada perangkat jaringan belum diganti,Bahuwarna Suwarno,High,Closed,2026-09-13,2026-10-13,2026-09-24
+273,2,Akun karyawan yang sudah resign masih aktif di aplikasi inti,Panca Oktaviani,High,Open,2026-09-21,2026-10-21,
+274,2,Perubahan darurat tidak melalui prosedur change management,Wahyu Uwais,Medium,Open,2026-09-22,2026-11-21,
+275,2,Bukti review log tidak disetujui atasan,Umaya Rahimah,Low,Open,2026-09-23,2026-12-22,
+276,2,Kredensial aplikasi tersimpan plaintext di file konfigurasi,Panca Oktaviani,High,Open,2026-09-27,2026-10-27,
+277,2,Perubahan darurat tidak melalui prosedur change management,Umaya Rahimah,Medium,Open,2026-09-27,2026-11-26,
+278,2,Firewall rule mengizinkan akses any-any ke segmen produksi,Bambang Kurniawan,High,Open,2026-09-27,2026-10-27,
+279,2,Inventaris aset TI tidak mutakhir,Bambang Kurniawan,Medium,Open,2026-09-29,2026-11-28,
+280,2,Sesi aplikasi yang idle tidak otomatis logout,Bahuwarna Suwarno,Medium,Open,2026-09-29,2026-11-28,
+281,3,Penamaan server tidak sesuai standar konfigurasi,Panca Oktaviani,Low,Closed,2025-04-09,2025-07-08,2025-06-03
+282,3,Inventaris aset TI tidak mutakhir,Usyi Kuswoyo,Medium,Closed,2025-04-13,2025-06-12,2025-04-29
+283,3,Sertifikat TLS aplikasi internal kedaluwarsa,Hana Fujiati,Medium,Closed,2025-04-20,2025-06-19,2025-06-01
+284,3,Firewall rule mengizinkan akses any-any ke segmen produksi,Saka Permata,High,Closed,2025-04-21,2025-05-21,2025-05-06
+285,3,Developer memiliki akses langsung ke lingkungan produksi,Hana Fujiati,Medium,Closed,2025-05-18,2025-07-17,2025-06-04
+286,3,Patch keamanan kritikal belum diterapkan lebih dari 30 hari,Bambang Kurniawan,High,Closed,2025-05-27,2025-06-26,2025-06-13
+287,3,Kredensial aplikasi tersimpan plaintext di file konfigurasi,Saka Permata,High,Closed,2025-06-02,2025-07-02,2025-07-05
+288,3,Label klasifikasi data belum diterapkan pada dokumen,Umaya Rahimah,Low,Closed,2025-06-05,2025-09-03,2025-08-17
+289,3,Disaster Recovery Plan belum diuji dalam 12 bulan terakhir,Zulaikha Megantara,High,Closed,2025-06-15,2025-07-15,2025-07-12
+290,3,Developer memiliki akses langsung ke lingkungan produksi,Wahyu Uwais,Medium,Closed,2025-06-26,2025-08-25,2025-08-16
+291,3,Audit log database produksi tidak diaktifkan,Hana Fujiati,High,Closed,2025-06-30,2025-07-30,2025-07-20
+292,3,Developer memiliki akses langsung ke lingkungan produksi,Panca Oktaviani,Medium,Closed,2025-07-21,2025-09-19,2025-09-10
+293,3,Backup database produksi tidak pernah diuji restore,Bella Sudiati,High,Closed,2025-07-26,2025-08-25,2025-08-24
+294,3,Agen EDR pada sebagian endpoint tidak ter-update,Saka Permata,Medium,Closed,2025-07-30,2025-09-28,2025-09-15
+295,3,Perubahan darurat tidak melalui prosedur change management,Pandu Nugroho,Medium,Closed,2025-08-06,2025-10-05,2025-09-12
+296,3,Kontrak vendor belum mencantumkan klausul kerahasiaan data,Zulaikha Megantara,Low,Closed,2025-08-08,2025-11-06,2025-09-27
+297,3,Sertifikat TLS aplikasi internal kedaluwarsa,Hana Fujiati,Medium,Closed,2025-08-20,2025-10-19,2025-09-19
+298,3,Log akses fisik ruang server tidak lengkap,Zulaikha Megantara,Low,Closed,2025-08-27,2025-11-25,2025-09-30
+299,3,Bukti review log tidak disetujui atasan,Aris Mulyani,Low,Closed,2025-08-28,2025-11-26,2025-12-20
+300,3,Hasil vulnerability scan tidak ditindaklanjuti,Usyi Kuswoyo,Medium,Closed,2025-08-30,2025-10-29,2025-10-27
+301,3,Jadwal pelatihan security awareness tidak terdokumentasi,Zulaikha Megantara,Low,Closed,2025-09-04,2025-12-03,2025-10-24
+302,3,Akun karyawan yang sudah resign masih aktif di aplikasi inti,Panca Oktaviani,High,Closed,2025-09-05,2025-10-05,2025-09-25
+303,3,Kebijakan password belum mewajibkan minimal 12 karakter,Panca Oktaviani,Medium,Closed,2025-09-19,2025-11-18,2025-10-12
+304,3,Disaster Recovery Plan belum diuji dalam 12 bulan terakhir,Wahyu Uwais,High,Closed,2025-09-21,2025-10-21,2025-10-05
+305,3,Inventaris aset TI tidak mutakhir,Bella Sudiati,Medium,Closed,2025-10-02,2025-12-01,2025-11-08
+306,3,Server produksi menjalankan sistem operasi end-of-life,Aris Mulyani,High,Closed,2025-10-04,2025-11-03,2025-10-25
+307,3,Akun karyawan yang sudah resign masih aktif di aplikasi inti,Hana Fujiati,High,Closed,2025-11-09,2025-12-09,2025-11-27
+308,3,Agen EDR pada sebagian endpoint tidak ter-update,Zulaikha Megantara,Medium,Closed,2025-11-13,2026-01-12,2026-02-25
+309,3,Perubahan darurat tidak melalui prosedur change management,Umaya Rahimah,Medium,Closed,2025-11-22,2026-01-21,2026-02-02
+310,3,Banner peringatan belum dipasang pada halaman login,Aris Mulyani,Low,Closed,2025-11-24,2026-02-22,2025-12-30
+311,3,Monitoring kapasitas server tidak memiliki ambang peringatan,Bahuwarna Suwarno,Medium,Closed,2025-12-12,2026-02-10,2026-01-04
+312,3,Kontrak vendor belum mencantumkan klausul kerahasiaan data,Bahuwarna Suwarno,Low,Closed,2025-12-27,2026-03-27,2026-02-12
+313,3,Penamaan server tidak sesuai standar konfigurasi,Bahuwarna Suwarno,Low,Closed,2026-01-27,2026-04-27,2026-02-22
+314,3,Password default pada perangkat jaringan belum diganti,Pandu Nugroho,High,Closed,2026-01-30,2026-03-01,2026-02-12
+315,3,Patch keamanan kritikal belum diterapkan lebih dari 30 hari,Aris Mulyani,High,Closed,2026-02-16,2026-03-18,2026-03-07
+316,3,SOP operasional TI belum diperbarui sejak 2023,Panca Oktaviani,Low,Closed,2026-03-09,2026-06-07,2026-04-25
+317,3,Kontrak vendor belum mencantumkan klausul kerahasiaan data,Umaya Rahimah,Low,Closed,2026-03-16,2026-06-14,2026-05-07
+318,3,Firewall rule mengizinkan akses any-any ke segmen produksi,Aris Mulyani,High,Closed,2026-03-18,2026-04-17,2026-04-03
+319,3,Jadwal pelatihan security awareness tidak terdokumentasi,Usyi Kuswoyo,Low,Closed,2026-03-20,2026-06-18,2026-06-25
+320,3,Password default pada perangkat jaringan belum diganti,Hana Fujiati,High,Closed,2026-04-30,2026-05-30,2026-06-03
+321,3,Inventaris aset TI tidak mutakhir,Pandu Nugroho,Medium,Closed,2026-05-10,2026-07-09,2026-06-15
+322,3,Agen EDR pada sebagian endpoint tidak ter-update,Usyi Kuswoyo,Medium,Closed,2026-05-13,2026-07-12,2026-06-23
+323,3,Sertifikat TLS aplikasi internal kedaluwarsa,Zulaikha Megantara,Medium,Closed,2026-05-29,2026-07-28,2026-07-29
+324,3,Akses administrator server produksi tanpa MFA,Usyi Kuswoyo,High,Closed,2026-06-03,2026-07-03,2026-07-17
+325,3,Jadwal pelatihan security awareness tidak terdokumentasi,Bahuwarna Suwarno,Low,Closed,2026-06-07,2026-09-05,2026-07-22
+326,3,Inventaris aset TI tidak mutakhir,Zulaikha Megantara,Medium,Closed,2026-06-11,2026-08-10,2026-08-02
+327,3,Sertifikat TLS aplikasi internal kedaluwarsa,Pandu Nugroho,Medium,Closed,2026-06-11,2026-08-10,2026-07-18
+328,3,Developer memiliki akses langsung ke lingkungan produksi,Bella Sudiati,Medium,Closed,2026-06-15,2026-08-14,2026-07-14
+329,3,Kredensial aplikasi tersimpan plaintext di file konfigurasi,Saka Permata,High,Closed,2026-06-19,2026-07-19,2026-07-07
+330,3,Label klasifikasi data belum diterapkan pada dokumen,Bahuwarna Suwarno,Low,Closed,2026-06-19,2026-09-17,2026-08-23
+331,3,Kebijakan password belum mewajibkan minimal 12 karakter,Panca Oktaviani,Medium,Closed,2026-06-22,2026-08-21,2026-08-01
+332,3,Sesi aplikasi yang idle tidak otomatis logout,Usyi Kuswoyo,Medium,Closed,2026-07-02,2026-08-31,2026-07-27
+333,3,Penamaan server tidak sesuai standar konfigurasi,Bella Sudiati,Low,Closed,2026-07-08,2026-10-06,2026-09-10
+334,3,Patch keamanan kritikal belum diterapkan lebih dari 30 hari,Zulaikha Megantara,High,Closed,2026-07-15,2026-08-14,2026-07-31
+335,3,Monitoring kapasitas server tidak memiliki ambang peringatan,Bahuwarna Suwarno,Medium,Closed,2026-07-16,2026-09-14,2026-08-24
+336,3,Log akses fisik ruang server tidak lengkap,Bambang Kurniawan,Low,Closed,2026-07-18,2026-10-16,2026-09-30
+337,3,Bukti review log tidak disetujui atasan,Pandu Nugroho,Low,Closed,2026-07-18,2026-10-16,2026-09-16
+338,3,Jadwal pelatihan security awareness tidak terdokumentasi,Bahuwarna Suwarno,Low,Closed,2026-07-18,2026-10-16,2026-09-20
+339,3,Monitoring kapasitas server tidak memiliki ambang peringatan,Usyi Kuswoyo,Medium,Closed,2026-07-22,2026-09-20,2026-08-28
+340,3,Disaster Recovery Plan belum diuji dalam 12 bulan terakhir,Wahyu Uwais,High,Closed,2026-07-27,2026-08-26,2026-08-08
+341,3,Audit log database produksi tidak diaktifkan,Bella Sudiati,High,Closed,2026-07-28,2026-08-27,2026-08-06
+342,3,Patch keamanan kritikal belum diterapkan lebih dari 30 hari,Saka Permata,High,Closed,2026-07-29,2026-08-28,2026-08-15
+343,3,Perubahan darurat tidak melalui prosedur change management,Panca Oktaviani,Medium,Closed,2026-08-06,2026-10-05,2026-09-17
+344,3,Kebijakan password belum mewajibkan minimal 12 karakter,Usyi Kuswoyo,Medium,Closed,2026-08-06,2026-10-05,2026-09-15
+345,3,Password default pada perangkat jaringan belum diganti,Usyi Kuswoyo,High,Closed,2026-08-09,2026-09-08,2026-09-19
+346,3,Bukti review log tidak disetujui atasan,Aris Mulyani,Low,Open,2026-08-09,2026-11-07,
+347,3,Penamaan server tidak sesuai standar konfigurasi,Zulaikha Megantara,Low,Open,2026-08-23,2026-11-21,
+348,3,Log akses fisik ruang server tidak lengkap,Saka Permata,Low,Open,2026-08-23,2026-11-21,
+349,3,Sertifikat TLS aplikasi internal kedaluwarsa,Wahyu Uwais,Medium,Open,2026-09-12,2026-11-11,
+350,3,Akses administrator server produksi tanpa MFA,Umaya Rahimah,High,Open,2026-09-17,2026-10-17,
+351,4,Log akses fisik ruang server tidak lengkap,Wahyu Uwais,Low,Closed,2025-04-08,2025-07-07,2025-06-08
+352,4,Label klasifikasi data belum diterapkan pada dokumen,Wahyu Uwais,Low,Closed,2025-04-08,2025-07-07,2025-06-08
+353,4,Jadwal pelatihan security awareness tidak terdokumentasi,Bahuwarna Suwarno,Low,Closed,2025-04-10,2025-07-09,2025-07-08
+354,4,Developer memiliki akses langsung ke lingkungan produksi,Aris Mulyani,Medium,Closed,2025-04-21,2025-06-20,2025-07-25
+355,4,Log akses fisik ruang server tidak lengkap,Panca Oktaviani,Low,Closed,2025-05-05,2025-08-03,2025-11-26
+356,4,Label klasifikasi data belum diterapkan pada dokumen,Umaya Rahimah,Low,Closed,2025-05-15,2025-08-13,2025-06-25
+357,4,Developer memiliki akses langsung ke lingkungan produksi,Usyi Kuswoyo,Medium,Closed,2025-05-17,2025-07-16,2025-06-17
+358,4,Inventaris aset TI tidak mutakhir,Hana Fujiati,Medium,Closed,2025-05-23,2025-07-22,2025-06-12
+359,4,Disaster Recovery Plan belum diuji dalam 12 bulan terakhir,Zulaikha Megantara,High,Closed,2025-06-04,2025-07-04,2025-06-20
+360,4,Perubahan darurat tidak melalui prosedur change management,Panca Oktaviani,Medium,Closed,2025-06-05,2025-08-04,2025-09-09
+361,4,Sesi aplikasi yang idle tidak otomatis logout,Umaya Rahimah,Medium,Closed,2025-06-09,2025-08-08,2025-07-30
+362,4,Kontrak vendor belum mencantumkan klausul kerahasiaan data,Bahuwarna Suwarno,Low,Closed,2025-06-15,2025-09-13,2025-07-31
+363,4,Bukti review log tidak disetujui atasan,Wahyu Uwais,Low,Closed,2025-07-08,2025-10-06,2025-10-15
+364,4,Log akses fisik ruang server tidak lengkap,Saka Permata,Low,Closed,2025-07-11,2025-10-09,2025-09-17
+365,4,Patch keamanan kritikal belum diterapkan lebih dari 30 hari,Bella Sudiati,High,Closed,2025-07-13,2025-08-12,2025-08-12
+366,4,Developer memiliki akses langsung ke lingkungan produksi,Saka Permata,Medium,Closed,2025-07-21,2025-09-19,2025-08-25
+367,4,Inventaris aset TI tidak mutakhir,Saka Permata,Medium,Closed,2025-07-24,2025-09-22,2025-08-29
+368,4,Log akses fisik ruang server tidak lengkap,Umaya Rahimah,Low,Closed,2025-08-01,2025-10-30,2025-10-13
+369,4,Agen EDR pada sebagian endpoint tidak ter-update,Umaya Rahimah,Medium,Closed,2025-08-07,2025-10-06,2025-09-13
+370,4,Sesi aplikasi yang idle tidak otomatis logout,Umaya Rahimah,Medium,Closed,2025-08-17,2025-10-16,2025-10-12
+371,4,Backup database produksi tidak pernah diuji restore,Usyi Kuswoyo,High,Closed,2025-08-18,2025-09-17,2025-09-25
+372,4,Monitoring kapasitas server tidak memiliki ambang peringatan,Pandu Nugroho,Medium,Closed,2025-08-19,2025-10-18,2025-10-23
+373,4,Password default pada perangkat jaringan belum diganti,Hana Fujiati,High,Closed,2025-08-20,2025-09-19,2025-09-04
+374,4,Log akses fisik ruang server tidak lengkap,Usyi Kuswoyo,Low,Closed,2025-08-23,2025-11-21,2025-11-25
+375,4,Developer memiliki akses langsung ke lingkungan produksi,Saka Permata,Medium,Closed,2025-08-25,2025-10-24,2025-10-20
+376,4,Inventaris aset TI tidak mutakhir,Bambang Kurniawan,Medium,Closed,2025-08-29,2025-10-28,2025-11-05
+377,4,Penamaan server tidak sesuai standar konfigurasi,Hana Fujiati,Low,Closed,2025-09-03,2025-12-02,2025-12-02
+378,4,Server produksi menjalankan sistem operasi end-of-life,Bambang Kurniawan,High,Open,2025-09-09,2025-10-09,
+379,4,Log akses fisik ruang server tidak lengkap,Wahyu Uwais,Low,Closed,2025-09-14,2025-12-13,2025-11-26
+380,4,Sesi aplikasi yang idle tidak otomatis logout,Aris Mulyani,Medium,Closed,2025-09-17,2025-11-16,2025-11-05
+381,4,Kebijakan password belum mewajibkan minimal 12 karakter,Umaya Rahimah,Medium,Closed,2025-09-17,2025-11-16,2025-10-15
+382,4,Label klasifikasi data belum diterapkan pada dokumen,Usyi Kuswoyo,Low,Closed,2025-09-22,2025-12-21,2025-12-10
+383,4,Developer memiliki akses langsung ke lingkungan produksi,Pandu Nugroho,Medium,Closed,2025-09-24,2025-11-23,2025-11-12
+384,4,Sertifikat TLS aplikasi internal kedaluwarsa,Aris Mulyani,Medium,Closed,2025-09-24,2025-11-23,2025-12-11
+385,4,Agen EDR pada sebagian endpoint tidak ter-update,Bella Sudiati,Medium,Closed,2025-10-03,2025-12-02,2025-11-09
+386,4,Review hak akses pengguna tidak dilakukan setiap triwulan,Bella Sudiati,Medium,Closed,2025-10-06,2025-12-05,2026-01-31
+387,4,Banner peringatan belum dipasang pada halaman login,Zulaikha Megantara,Low,Open,2025-10-21,2026-01-19,
+388,4,Firewall rule mengizinkan akses any-any ke segmen produksi,Bahuwarna Suwarno,High,Closed,2025-11-02,2025-12-02,2025-11-19
+389,4,Akses administrator server produksi tanpa MFA,Bambang Kurniawan,High,Closed,2025-11-11,2025-12-11,2025-12-03
+390,4,SOP operasional TI belum diperbarui sejak 2023,Saka Permata,Low,Closed,2025-11-14,2026-02-12,2026-02-11
+391,4,SOP operasional TI belum diperbarui sejak 2023,Aris Mulyani,Low,Closed,2025-11-17,2026-02-15,2026-03-10
+392,4,Hasil vulnerability scan tidak ditindaklanjuti,Bambang Kurniawan,Medium,Closed,2025-11-21,2026-01-20,2026-01-30
+393,4,Server produksi menjalankan sistem operasi end-of-life,Wahyu Uwais,High,Closed,2025-11-23,2025-12-23,2025-12-13
+394,4,Agen EDR pada sebagian endpoint tidak ter-update,Bambang Kurniawan,Medium,Closed,2025-11-26,2026-01-25,2026-02-24
+395,4,Jadwal pelatihan security awareness tidak terdokumentasi,Pandu Nugroho,Low,Closed,2025-11-28,2026-02-26,2026-03-06
+396,4,Penamaan server tidak sesuai standar konfigurasi,Wahyu Uwais,Low,Closed,2025-12-02,2026-03-02,2025-12-26
+397,4,Server produksi menjalankan sistem operasi end-of-life,Bahuwarna Suwarno,High,Closed,2025-12-10,2026-01-09,2025-12-24
+398,4,Perubahan darurat tidak melalui prosedur change management,Aris Mulyani,Medium,Closed,2025-12-15,2026-02-13,2026-01-11
+399,4,Akses administrator server produksi tanpa MFA,Bahuwarna Suwarno,High,Closed,2025-12-19,2026-01-18,2026-01-08
+400,4,Agen EDR pada sebagian endpoint tidak ter-update,Wahyu Uwais,Medium,Closed,2025-12-20,2026-02-18,2026-03-03
+401,4,Kebijakan password belum mewajibkan minimal 12 karakter,Panca Oktaviani,Medium,Closed,2025-12-20,2026-02-18,2026-02-09
+402,4,Monitoring kapasitas server tidak memiliki ambang peringatan,Bahuwarna Suwarno,Medium,Closed,2025-12-30,2026-02-28,2026-02-06
+403,4,Sertifikat TLS aplikasi internal kedaluwarsa,Usyi Kuswoyo,Medium,Closed,2026-01-05,2026-03-06,2026-03-24
+404,4,Sertifikat TLS aplikasi internal kedaluwarsa,Usyi Kuswoyo,Medium,Closed,2026-01-09,2026-03-10,2026-03-12
+405,4,Sesi aplikasi yang idle tidak otomatis logout,Panca Oktaviani,Medium,Closed,2026-01-11,2026-03-12,2026-03-10
+406,4,Monitoring kapasitas server tidak memiliki ambang peringatan,Usyi Kuswoyo,Medium,Closed,2026-01-12,2026-03-13,2026-01-24
+407,4,Firewall rule mengizinkan akses any-any ke segmen produksi,Hana Fujiati,High,Closed,2026-01-14,2026-02-13,2026-01-27
+408,4,Jadwal pelatihan security awareness tidak terdokumentasi,Bella Sudiati,Low,Closed,2026-01-22,2026-04-22,2026-04-29
+409,4,Bukti review log tidak disetujui atasan,Aris Mulyani,Low,Closed,2026-01-23,2026-04-23,2026-06-07
+410,4,Agen EDR pada sebagian endpoint tidak ter-update,Wahyu Uwais,Medium,Closed,2026-01-28,2026-03-29,2026-03-20
+411,4,Hasil vulnerability scan tidak ditindaklanjuti,Bahuwarna Suwarno,Medium,Closed,2026-01-28,2026-03-29,2026-02-14
+412,4,Server produksi menjalankan sistem operasi end-of-life,Aris Mulyani,High,Closed,2026-02-13,2026-03-15,2026-03-07
+413,4,Review hak akses pengguna tidak dilakukan setiap triwulan,Panca Oktaviani,Medium,Closed,2026-02-15,2026-04-16,2026-06-09
+414,4,Firewall rule mengizinkan akses any-any ke segmen produksi,Hana Fujiati,High,Closed,2026-02-23,2026-03-25,2026-03-08
+415,4,Kredensial aplikasi tersimpan plaintext di file konfigurasi,Zulaikha Megantara,High,Closed,2026-03-01,2026-03-31,2026-03-31
+416,4,Backup database produksi tidak pernah diuji restore,Bambang Kurniawan,High,Closed,2026-03-04,2026-04-03,2026-03-18
+417,4,Password default pada perangkat jaringan belum diganti,Zulaikha Megantara,High,Closed,2026-03-06,2026-04-05,2026-04-03
+418,4,Bukti review log tidak disetujui atasan,Zulaikha Megantara,Low,Closed,2026-03-12,2026-06-10,2026-05-17
+419,4,Agen EDR pada sebagian endpoint tidak ter-update,Zulaikha Megantara,Medium,Closed,2026-03-14,2026-05-13,2026-04-21
+420,4,Review hak akses pengguna tidak dilakukan setiap triwulan,Panca Oktaviani,Medium,Closed,2026-03-15,2026-05-14,2026-04-30
+421,4,Log akses fisik ruang server tidak lengkap,Panca Oktaviani,Low,Closed,2026-03-18,2026-06-16,2026-05-28
+422,4,Label klasifikasi data belum diterapkan pada dokumen,Pandu Nugroho,Low,Closed,2026-03-27,2026-06-25,2026-06-17
+423,4,SOP operasional TI belum diperbarui sejak 2023,Bambang Kurniawan,Low,Closed,2026-03-28,2026-06-26,2026-06-13
+424,4,Sertifikat TLS aplikasi internal kedaluwarsa,Zulaikha Megantara,Medium,Closed,2026-04-01,2026-05-31,2026-07-06
+425,4,Jadwal pelatihan security awareness tidak terdokumentasi,Hana Fujiati,Low,Closed,2026-04-03,2026-07-02,2026-07-09
+426,4,Patch keamanan kritikal belum diterapkan lebih dari 30 hari,Wahyu Uwais,High,Closed,2026-04-05,2026-05-05,2026-04-26
+427,4,Backup database produksi tidak pernah diuji restore,Bambang Kurniawan,High,Closed,2026-04-06,2026-05-06,2026-04-25
+428,4,Kontrak vendor belum mencantumkan klausul kerahasiaan data,Panca Oktaviani,Low,Closed,2026-04-08,2026-07-07,2026-05-27
+429,4,Kebijakan password belum mewajibkan minimal 12 karakter,Usyi Kuswoyo,Medium,Closed,2026-04-19,2026-06-18,2026-06-05
+430,4,Banner peringatan belum dipasang pada halaman login,Bambang Kurniawan,Low,Closed,2026-04-25,2026-07-24,2026-06-07
+431,4,Bukti review log tidak disetujui atasan,Hana Fujiati,Low,Closed,2026-05-01,2026-07-30,2026-08-20
+432,4,Kebijakan password belum mewajibkan minimal 12 karakter,Saka Permata,Medium,Closed,2026-05-01,2026-06-30,2026-06-07
+433,4,Banner peringatan belum dipasang pada halaman login,Panca Oktaviani,Low,Closed,2026-05-01,2026-07-30,2026-07-09
+434,4,Firewall rule mengizinkan akses any-any ke segmen produksi,Saka Permata,High,Closed,2026-05-06,2026-06-05,2026-05-21
+435,4,Inventaris aset TI tidak mutakhir,Umaya Rahimah,Medium,Closed,2026-05-13,2026-07-12,2026-06-04
+436,4,Penamaan server tidak sesuai standar konfigurasi,Bahuwarna Suwarno,Low,Closed,2026-05-14,2026-08-12,2026-07-11
+437,4,Penamaan server tidak sesuai standar konfigurasi,Usyi Kuswoyo,Low,Closed,2026-05-18,2026-08-16,2026-08-24
+438,4,Bukti review log tidak disetujui atasan,Wahyu Uwais,Low,Closed,2026-05-18,2026-08-16,2026-08-11
+439,4,Audit log database produksi tidak diaktifkan,Wahyu Uwais,High,Closed,2026-05-26,2026-06-25,2026-07-02
+440,4,Password default pada perangkat jaringan belum diganti,Zulaikha Megantara,High,Closed,2026-05-28,2026-06-27,2026-07-07
+441,4,Inventaris aset TI tidak mutakhir,Pandu Nugroho,Medium,Closed,2026-06-11,2026-08-10,2026-07-20
+442,4,Perubahan darurat tidak melalui prosedur change management,Saka Permata,Medium,Closed,2026-06-14,2026-08-13,2026-07-28
+443,4,Bukti review log tidak disetujui atasan,Panca Oktaviani,Low,Open,2026-06-23,2026-09-21,
+444,4,Kebijakan password belum mewajibkan minimal 12 karakter,Bella Sudiati,Medium,Closed,2026-06-30,2026-08-29,2026-08-19
+445,4,Hasil vulnerability scan tidak ditindaklanjuti,Aris Mulyani,Medium,Closed,2026-07-09,2026-09-07,2026-08-23
+446,4,Bukti review log tidak disetujui atasan,Bella Sudiati,Low,Open,2026-07-10,2026-10-08,
+447,4,Kebijakan password belum mewajibkan minimal 12 karakter,Aris Mulyani,Medium,Closed,2026-07-10,2026-09-08,2026-08-24
+448,4,PCI DSS 10.2: Log akses ke data pemegang kartu tidak lengkap,Gaiman Kuswoyo,High,Open,2026-07-27,2026-08-26,
+449,4,PCI DSS 3.5: Data PAN tersimpan tanpa enkripsi di server aplikasi kartu,Galur Mulyani,High,Open,2026-07-29,2026-08-28,
+450,4,Developer memiliki akses langsung ke lingkungan produksi,Zulaikha Megantara,Medium,Closed,2026-08-02,2026-10-01,2026-09-08
+451,4,PCI DSS 11.3: Pemindaian kerentanan internal triwulanan tidak dilakukan,Gaiman Kuswoyo,High,Open,2026-08-03,2026-09-02,
+452,4,Agen EDR pada sebagian endpoint tidak ter-update,Umaya Rahimah,Medium,Closed,2026-08-05,2026-10-04,2026-09-21
+453,4,Kontrak vendor belum mencantumkan klausul kerahasiaan data,Usyi Kuswoyo,Low,Open,2026-08-07,2026-11-05,
+454,4,Hasil vulnerability scan tidak ditindaklanjuti,Zulaikha Megantara,Medium,Open,2026-08-08,2026-10-07,
+455,4,PCI DSS 7.2: Hak akses berlebih pada database pemegang kartu,Gaiman Kuswoyo,High,Open,2026-08-08,2026-09-07,
+456,4,PCI DSS 7.2: Hak akses berlebih pada database pemegang kartu,Galur Mulyani,High,Open,2026-08-09,2026-09-08,
+457,4,PCI DSS 7.2: Hak akses berlebih pada database pemegang kartu,Galur Mulyani,High,Open,2026-08-14,2026-09-13,
+458,4,Sesi aplikasi yang idle tidak otomatis logout,Pandu Nugroho,Medium,Open,2026-08-20,2026-10-19,
+459,4,PCI DSS 2.2: Hardening server switching kartu belum diterapkan,Drajat Waluyo,High,Open,2026-08-20,2026-09-19,
+460,4,PCI DSS 2.2: Hardening server switching kartu belum diterapkan,Drajat Waluyo,High,Open,2026-08-21,2026-09-20,
+461,4,PCI DSS 1.3: Segmentasi jaringan CDE tidak memadai,Gaiman Kuswoyo,High,Open,2026-08-27,2026-09-26,
+462,4,Jadwal pelatihan security awareness tidak terdokumentasi,Bambang Kurniawan,Low,Open,2026-08-28,2026-11-26,
+463,4,Agen EDR pada sebagian endpoint tidak ter-update,Umaya Rahimah,Medium,Open,2026-08-28,2026-10-27,
+464,4,PCI DSS 11.3: Pemindaian kerentanan internal triwulanan tidak dilakukan,Drajat Waluyo,High,Open,2026-08-28,2026-09-27,
+465,4,PCI DSS 8.4: Akses ke lingkungan CDE tanpa MFA,Gaiman Kuswoyo,High,Open,2026-08-29,2026-09-28,
+466,4,PCI DSS 10.2: Log akses ke data pemegang kartu tidak lengkap,Drajat Waluyo,High,Open,2026-08-30,2026-09-29,
+467,4,PCI DSS 7.2: Hak akses berlebih pada database pemegang kartu,Galur Mulyani,High,Open,2026-08-31,2026-09-30,
+468,4,PCI DSS 7.2: Hak akses berlebih pada database pemegang kartu,Drajat Waluyo,High,Open,2026-09-01,2026-10-01,
+469,4,PCI DSS 8.4: Akses ke lingkungan CDE tanpa MFA,Galur Mulyani,High,Open,2026-09-02,2026-10-02,
+470,4,PCI DSS 10.2: Log akses ke data pemegang kartu tidak lengkap,Drajat Waluyo,High,Open,2026-09-02,2026-10-02,
+471,4,PCI DSS 10.2: Log akses ke data pemegang kartu tidak lengkap,Drajat Waluyo,High,Closed,2026-09-03,2026-10-03,2026-09-29
+472,4,PCI DSS 7.2: Hak akses berlebih pada database pemegang kartu,Gaiman Kuswoyo,High,Open,2026-09-03,2026-10-03,
+473,4,Perubahan darurat tidak melalui prosedur change management,Panca Oktaviani,Medium,Open,2026-09-03,2026-11-02,
+474,4,PCI DSS 11.3: Pemindaian kerentanan internal triwulanan tidak dilakukan,Gaiman Kuswoyo,High,Open,2026-09-04,2026-10-04,
+475,4,PCI DSS 6.3.3: Patch kritikal pada server CDE melewati batas 1 bulan,Gaiman Kuswoyo,High,Open,2026-09-05,2026-10-05,
+476,4,PCI DSS 1.3: Segmentasi jaringan CDE tidak memadai,Galur Mulyani,High,Open,2026-09-06,2026-10-06,
+477,4,PCI DSS 7.2: Hak akses berlebih pada database pemegang kartu,Drajat Waluyo,High,Open,2026-09-06,2026-10-06,
+478,4,SOP operasional TI belum diperbarui sejak 2023,Hana Fujiati,Low,Open,2026-09-07,2026-12-06,
+479,4,PCI DSS 1.3: Segmentasi jaringan CDE tidak memadai,Gaiman Kuswoyo,High,Open,2026-09-07,2026-10-07,
+480,4,PCI DSS 8.4: Akses ke lingkungan CDE tanpa MFA,Galur Mulyani,High,Open,2026-09-09,2026-10-09,
+481,4,Sesi aplikasi yang idle tidak otomatis logout,Bella Sudiati,Medium,Open,2026-09-09,2026-11-08,
+482,4,PCI DSS 11.3: Pemindaian kerentanan internal triwulanan tidak dilakukan,Gaiman Kuswoyo,High,Open,2026-09-14,2026-10-14,
+483,4,Monitoring kapasitas server tidak memiliki ambang peringatan,Aris Mulyani,Medium,Open,2026-09-14,2026-11-13,
+484,4,PCI DSS 1.3: Segmentasi jaringan CDE tidak memadai,Gaiman Kuswoyo,High,Open,2026-09-17,2026-10-17,
+485,4,Developer memiliki akses langsung ke lingkungan produksi,Bahuwarna Suwarno,Medium,Open,2026-09-19,2026-11-18,
+486,4,Jadwal pelatihan security awareness tidak terdokumentasi,Aris Mulyani,Low,Open,2026-09-23,2026-12-22,
+487,5,Akun karyawan yang sudah resign masih aktif di aplikasi inti,Aris Mulyani,High,Closed,2025-04-11,2025-05-11,2025-05-08
+488,5,Monitoring kapasitas server tidak memiliki ambang peringatan,Bambang Kurniawan,Medium,Closed,2025-04-22,2025-06-21,2025-06-16
+489,5,Bukti review log tidak disetujui atasan,Hana Fujiati,Low,Closed,2025-04-22,2025-07-21,2025-07-21
+490,5,Penamaan server tidak sesuai standar konfigurasi,Saka Permata,Low,Closed,2025-04-23,2025-07-22,2025-07-02
+491,5,Sesi aplikasi yang idle tidak otomatis logout,Wahyu Uwais,Medium,Closed,2025-05-05,2025-07-04,2025-06-06
+492,5,Monitoring kapasitas server tidak memiliki ambang peringatan,Bambang Kurniawan,Medium,Closed,2025-05-12,2025-07-11,2025-08-27
+493,5,Agen EDR pada sebagian endpoint tidak ter-update,Umaya Rahimah,Medium,Closed,2025-05-19,2025-07-18,2025-08-22
+494,5,Password default pada perangkat jaringan belum diganti,Usyi Kuswoyo,High,Open,2025-06-15,2025-07-15,
+495,5,Jadwal pelatihan security awareness tidak terdokumentasi,Bahuwarna Suwarno,Low,Closed,2025-06-20,2025-09-18,2025-09-01
+496,5,Password default pada perangkat jaringan belum diganti,Pandu Nugroho,High,Closed,2025-06-21,2025-07-21,2025-07-06
+497,5,Banner peringatan belum dipasang pada halaman login,Bambang Kurniawan,Low,Closed,2025-07-06,2025-10-04,2025-11-09
+498,5,Sesi aplikasi yang idle tidak otomatis logout,Bambang Kurniawan,Medium,Closed,2025-07-28,2025-09-26,2025-11-04
+499,5,Kontrak vendor belum mencantumkan klausul kerahasiaan data,Usyi Kuswoyo,Low,Closed,2025-07-31,2025-10-29,2025-11-13
+500,5,Penamaan server tidak sesuai standar konfigurasi,Umaya Rahimah,Low,Closed,2025-08-04,2025-11-02,2025-10-17
+501,5,Password default pada perangkat jaringan belum diganti,Panca Oktaviani,High,Closed,2025-08-05,2025-09-04,2025-09-02
+502,5,Label klasifikasi data belum diterapkan pada dokumen,Usyi Kuswoyo,Low,Closed,2025-08-10,2025-11-08,2025-10-27
+503,5,Sertifikat TLS aplikasi internal kedaluwarsa,Bahuwarna Suwarno,Medium,Closed,2025-09-01,2025-10-31,2025-11-14
+504,5,Perubahan darurat tidak melalui prosedur change management,Saka Permata,Medium,Closed,2025-09-09,2025-11-08,2025-11-15
+505,5,Inventaris aset TI tidak mutakhir,Pandu Nugroho,Medium,Closed,2025-09-27,2025-11-26,2026-01-31
+506,5,Kredensial aplikasi tersimpan plaintext di file konfigurasi,Pandu Nugroho,High,Closed,2025-10-01,2025-10-31,2025-11-10
+507,5,Sertifikat TLS aplikasi internal kedaluwarsa,Hana Fujiati,Medium,Closed,2025-10-06,2025-12-05,2025-11-14
+508,5,Agen EDR pada sebagian endpoint tidak ter-update,Umaya Rahimah,Medium,Closed,2025-10-14,2025-12-13,2025-11-12
+509,5,Inventaris aset TI tidak mutakhir,Aris Mulyani,Medium,Closed,2025-10-29,2025-12-28,2025-12-19
+510,5,Backup database produksi tidak pernah diuji restore,Zulaikha Megantara,High,Open,2025-10-29,2025-11-28,
+511,5,Penamaan server tidak sesuai standar konfigurasi,Wahyu Uwais,Low,Closed,2025-10-30,2026-01-28,2026-01-15
+512,5,Banner peringatan belum dipasang pada halaman login,Usyi Kuswoyo,Low,Closed,2025-11-06,2026-02-04,2026-03-03
+513,5,Kredensial aplikasi tersimpan plaintext di file konfigurasi,Bambang Kurniawan,High,Closed,2025-11-12,2025-12-12,2025-12-15
+514,5,Agen EDR pada sebagian endpoint tidak ter-update,Zulaikha Megantara,Medium,Closed,2025-11-14,2026-01-13,2026-01-19
+515,5,Perubahan darurat tidak melalui prosedur change management,Pandu Nugroho,Medium,Closed,2025-11-18,2026-01-17,2026-01-08
+516,5,Akses administrator server produksi tanpa MFA,Bahuwarna Suwarno,High,Closed,2025-11-20,2025-12-20,2025-12-11
+517,5,Banner peringatan belum dipasang pada halaman login,Aris Mulyani,Low,Closed,2025-11-20,2026-02-18,2026-01-20
+518,5,Jadwal pelatihan security awareness tidak terdokumentasi,Pandu Nugroho,Low,Closed,2025-11-29,2026-02-27,2026-04-01
+519,5,Bukti review log tidak disetujui atasan,Zulaikha Megantara,Low,Closed,2025-12-13,2026-03-13,2026-03-20
+520,5,Sertifikat TLS aplikasi internal kedaluwarsa,Zulaikha Megantara,Medium,Closed,2025-12-16,2026-02-14,2026-05-05
+521,5,Sesi aplikasi yang idle tidak otomatis logout,Pandu Nugroho,Medium,Closed,2026-01-24,2026-03-25,2026-04-23
+522,5,Hasil vulnerability scan tidak ditindaklanjuti,Pandu Nugroho,Medium,Closed,2026-01-26,2026-03-27,2026-03-29
+523,5,Agen EDR pada sebagian endpoint tidak ter-update,Usyi Kuswoyo,Medium,Closed,2026-01-27,2026-03-28,2026-04-05
+524,5,Sesi aplikasi yang idle tidak otomatis logout,Usyi Kuswoyo,Medium,Closed,2026-02-06,2026-04-07,2026-04-23
+525,5,Hasil vulnerability scan tidak ditindaklanjuti,Bahuwarna Suwarno,Medium,Closed,2026-02-17,2026-04-18,2026-05-27
+526,5,SOP operasional TI belum diperbarui sejak 2023,Bella Sudiati,Low,Closed,2026-02-27,2026-05-28,2026-05-22
+527,5,Hasil vulnerability scan tidak ditindaklanjuti,Usyi Kuswoyo,Medium,Closed,2026-03-10,2026-05-09,2026-05-09
+528,5,Log akses fisik ruang server tidak lengkap,Usyi Kuswoyo,Low,Closed,2026-03-21,2026-06-19,2026-05-06
+529,5,Jadwal pelatihan security awareness tidak terdokumentasi,Bahuwarna Suwarno,Low,Closed,2026-04-09,2026-07-08,2026-06-21
+530,5,Review hak akses pengguna tidak dilakukan setiap triwulan,Panca Oktaviani,Medium,Closed,2026-04-17,2026-06-16,2026-06-11
+531,5,Server produksi menjalankan sistem operasi end-of-life,Bella Sudiati,High,Closed,2026-04-18,2026-05-18,2026-06-06
+532,5,Patch keamanan kritikal belum diterapkan lebih dari 30 hari,Panca Oktaviani,High,Closed,2026-04-24,2026-05-24,2026-06-13
+533,5,Monitoring kapasitas server tidak memiliki ambang peringatan,Pandu Nugroho,Medium,Closed,2026-05-16,2026-07-15,2026-07-17
+534,5,Kebijakan password belum mewajibkan minimal 12 karakter,Pandu Nugroho,Medium,Closed,2026-05-19,2026-07-18,2026-06-12
+535,5,Inventaris aset TI tidak mutakhir,Pandu Nugroho,Medium,Closed,2026-05-19,2026-07-18,2026-07-31
+536,5,Sesi aplikasi yang idle tidak otomatis logout,Usyi Kuswoyo,Medium,Closed,2026-05-24,2026-07-23,2026-07-27
+537,5,Inventaris aset TI tidak mutakhir,Bambang Kurniawan,Medium,Closed,2026-05-26,2026-07-25,2026-07-22
+538,5,Sertifikat TLS aplikasi internal kedaluwarsa,Hana Fujiati,Medium,Closed,2026-07-12,2026-09-10,2026-09-17
+539,5,Review hak akses pengguna tidak dilakukan setiap triwulan,Wahyu Uwais,Medium,Open,2026-07-14,2026-09-12,
+540,5,Audit log database produksi tidak diaktifkan,Hana Fujiati,High,Closed,2026-08-09,2026-09-08,2026-09-02
+541,5,SOP operasional TI belum diperbarui sejak 2023,Panca Oktaviani,Low,Open,2026-09-04,2026-12-03,

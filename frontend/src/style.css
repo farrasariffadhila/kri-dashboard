@@ -1,0 +1,259 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens.
+ * Primitives describe raw values; semantic tokens describe roles. Components only use semantic
+ * tokens (through the Tailwind theme below), so dark mode only has to redefine the semantic layer.
+ */
+:root {
+  /* Primitives: neutrals tinted slightly towards the petrol accent */
+  --neutral-0: #ffffff;
+  --neutral-25: #f7f9f9;
+  --neutral-50: #eff3f3;
+  --neutral-100: #e2e8e9;
+  --neutral-200: #c9d2d4;
+  --neutral-500: #5c686d;
+  --neutral-700: #364246;
+  --neutral-900: #142024;
+  --petrol-50: #e3eff1;
+  --petrol-600: #0e5a6b;
+  --petrol-700: #0a4553;
+  --red-50: #fbeaea;
+  --red-500: #c62f2f;
+  --red-800: #8f1c1c;
+  --amber-50: #fdf3d6;
+  --amber-500: #c98a00;
+  --amber-800: #6e4a00;
+  --green-50: #e7f3eb;
+  --green-500: #2f8a4c;
+  --green-800: #1a5a2f;
+
+  /* Semantic */
+  --ui-page: var(--neutral-25);
+  --ui-surface: var(--neutral-0);
+  --ui-surface-sunken: var(--neutral-50);
+  --ui-border: var(--neutral-200);
+  --ui-border-control: #7f8b90; /* 3:1 against surfaces, for interactive boundaries (WCAG 1.4.11) */
+  --ui-hairline: var(--neutral-100);
+  --ui-text: var(--neutral-900);
+  --ui-text-secondary: var(--neutral-700);
+  --ui-text-muted: var(--neutral-500);
+  --ui-accent: var(--petrol-600);
+  --ui-accent-hover: var(--petrol-700);
+  --ui-accent-subtle: var(--petrol-50);
+  --ui-on-accent: var(--neutral-0);
+  --ui-focus: var(--petrol-600);
+
+  --ui-critical-bg: var(--red-50);
+  --ui-critical-fg: var(--red-800);
+  --ui-critical-mark: var(--red-500);
+  --ui-warning-bg: var(--amber-50);
+  --ui-warning-fg: var(--amber-800);
+  --ui-warning-mark: var(--amber-500);
+  --ui-safe-bg: var(--green-50);
+  --ui-safe-fg: var(--green-800);
+  --ui-safe-mark: var(--green-500);
+
+  /* Sidebar: dark petrol in both themes, anchors the navigation */
+  --ui-sidebar-bg: #0b2f38;
+  --ui-sidebar-text: #e6f0f2;
+  --ui-sidebar-muted: #a3bec4;
+  --ui-sidebar-hover: #113e49;
+  --ui-sidebar-active: #17505d;
+  --ui-sidebar-indicator: #7cc7d6;
+
+  /* KRI series (categorical, validated with the dataviz palette checker) */
+  --ui-series-1: #2a78d6;
+  --ui-series-2: #eb6834;
+  --ui-series-3: #4a3aa7;
+  --ui-series-4: #e87ba4;
+
+  --ui-chart-line: var(--neutral-900);
+  --ui-chart-grid: var(--neutral-100);
+  --ui-chart-axis: var(--neutral-500);
+  --ui-backdrop: rgb(20 32 36 / 0.55);
+
+  color-scheme: light;
+}
+
+/* Dark palette: same roles, own steps (not an inverted light theme). */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ui-page: #0e1416;
+    --ui-surface: #151d20;
+    --ui-surface-sunken: #1b2528;
+    --ui-border: #3a474c;
+  --ui-border-control: #6c7b81;
+    --ui-border-control: #6c7b81;
+    --ui-hairline: #263135;
+    --ui-text: #e8eef0;
+    --ui-text-secondary: #b9c4c8;
+    --ui-text-muted: #94a2a7;
+    --ui-accent: #62b3c4;
+    --ui-accent-hover: #86c7d4;
+    --ui-accent-subtle: #17343b;
+    --ui-on-accent: #0e1416;
+    --ui-focus: #86c7d4;
+    --ui-critical-bg: #3b1918;
+    --ui-critical-fg: #ffb7b0;
+    --ui-critical-mark: #e5574f;
+    --ui-warning-bg: #35290b;
+    --ui-warning-fg: #f3cf78;
+    --ui-warning-mark: #d9a12a;
+    --ui-safe-bg: #12301d;
+    --ui-safe-fg: #96d6aa;
+    --ui-safe-mark: #4caa6a;
+    --ui-sidebar-bg: #091417;
+    --ui-sidebar-text: #e6f0f2;
+    --ui-sidebar-muted: #a3bec4;
+    --ui-sidebar-hover: #10252a;
+    --ui-sidebar-active: #17343b;
+    --ui-sidebar-indicator: #7cc7d6;
+    --ui-series-1: #3987e5;
+    --ui-series-2: #d95926;
+    --ui-series-3: #9085e9;
+    --ui-series-4: #d55181;
+    --ui-chart-line: #e8eef0;
+    --ui-chart-grid: #263135;
+    --ui-chart-axis: #94a2a7;
+    --ui-backdrop: rgb(0 0 0 / 0.65);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --ui-page: #0e1416;
+  --ui-surface: #151d20;
+  --ui-surface-sunken: #1b2528;
+  --ui-border: #3a474c;
+  --ui-border-control: #6c7b81;
+  --ui-hairline: #263135;
+  --ui-text: #e8eef0;
+  --ui-text-secondary: #b9c4c8;
+  --ui-text-muted: #94a2a7;
+  --ui-accent: #62b3c4;
+  --ui-accent-hover: #86c7d4;
+  --ui-accent-subtle: #17343b;
+  --ui-on-accent: #0e1416;
+  --ui-focus: #86c7d4;
+  --ui-critical-bg: #3b1918;
+  --ui-critical-fg: #ffb7b0;
+  --ui-critical-mark: #e5574f;
+  --ui-warning-bg: #35290b;
+  --ui-warning-fg: #f3cf78;
+  --ui-warning-mark: #d9a12a;
+  --ui-safe-bg: #12301d;
+  --ui-safe-fg: #96d6aa;
+  --ui-safe-mark: #4caa6a;
+  --ui-sidebar-bg: #091417;
+  --ui-sidebar-text: #e6f0f2;
+  --ui-sidebar-muted: #a3bec4;
+  --ui-sidebar-hover: #10252a;
+  --ui-sidebar-active: #17343b;
+  --ui-sidebar-indicator: #7cc7d6;
+  --ui-series-1: #3987e5;
+  --ui-series-2: #d95926;
+  --ui-series-3: #9085e9;
+  --ui-series-4: #d55181;
+  --ui-chart-line: #e8eef0;
+  --ui-chart-grid: #263135;
+  --ui-chart-axis: #94a2a7;
+  --ui-backdrop: rgb(0 0 0 / 0.65);
+  color-scheme: dark;
+}
+
+/* Expose semantic tokens to Tailwind utilities (bg-surface, text-muted, ...). */
+@theme inline {
+  --color-page: var(--ui-page);
+  --color-surface: var(--ui-surface);
+  --color-sunken: var(--ui-surface-sunken);
+  --color-border: var(--ui-border);
+  --color-control: var(--ui-border-control);
+  --color-hairline: var(--ui-hairline);
+  --color-ink: var(--ui-text);
+  --color-secondary: var(--ui-text-secondary);
+  --color-muted: var(--ui-text-muted);
+  --color-accent: var(--ui-accent);
+  --color-accent-hover: var(--ui-accent-hover);
+  --color-accent-subtle: var(--ui-accent-subtle);
+  --color-on-accent: var(--ui-on-accent);
+  --color-critical-bg: var(--ui-critical-bg);
+  --color-critical-fg: var(--ui-critical-fg);
+  --color-critical-mark: var(--ui-critical-mark);
+  --color-warning-bg: var(--ui-warning-bg);
+  --color-warning-fg: var(--ui-warning-fg);
+  --color-warning-mark: var(--ui-warning-mark);
+  --color-safe-bg: var(--ui-safe-bg);
+  --color-safe-fg: var(--ui-safe-fg);
+  --color-safe-mark: var(--ui-safe-mark);
+  --color-sidebar: var(--ui-sidebar-bg);
+  --color-sidebar-text: var(--ui-sidebar-text);
+  --color-sidebar-muted: var(--ui-sidebar-muted);
+  --color-sidebar-hover: var(--ui-sidebar-hover);
+  --color-sidebar-active: var(--ui-sidebar-active);
+  --color-sidebar-indicator: var(--ui-sidebar-indicator);
+  --color-series-1: var(--ui-series-1);
+  --color-series-2: var(--ui-series-2);
+  --color-series-3: var(--ui-series-3);
+  --color-series-4: var(--ui-series-4);
+}
+
+@theme {
+  --font-sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+
+  /* Type scale, ratio 1.25 on a 16px base */
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1.4;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.45;
+  --text-base: 1rem;
+  --text-base--line-height: 1.5;
+  --text-lg: 1.25rem;
+  --text-lg--line-height: 1.4;
+  --text-xl: 1.5625rem;
+  --text-xl--line-height: 1.3;
+  --text-2xl: 1.953rem;
+  --text-2xl--line-height: 1.2;
+  --text-3xl: 2.441rem;
+  --text-3xl--line-height: 1.15;
+
+  /* Only two radii: hairline-sharp surfaces and pills */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+}
+
+@layer base {
+  html {
+    background: var(--ui-page);
+    color: var(--ui-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ui-focus);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important; /* a looping animation at 0.01ms would flicker */
+    }
+  }
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* The sidebar is dark in both themes, so status colours and icon cut-outs use the dark-surface steps there. */
+.sidebar-scope {
+  --ui-critical-fg: #ffb7b0;
+  --ui-warning-fg: #f3cf78;
+  --ui-safe-fg: #96d6aa;
+  --ui-surface: var(--ui-sidebar-bg);
+}

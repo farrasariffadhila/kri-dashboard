@@ -1,0 +1,9 @@
+# Local working notes, not published
+docs/
+
+# OS files
+.DS_Store
+
+# Python
+.venv/
+__pycache__/

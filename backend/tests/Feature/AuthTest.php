@@ -21,6 +21,12 @@ class AuthTest extends TestCase
         $this->getJson('/api/me')->assertUnauthorized();
     }
 
+    public function test_api_returns_json_401_even_without_an_accept_header(): void
+    {
+        // e.g. someone opening an API URL directly in the browser
+        $this->get('/api/me')->assertUnauthorized()->assertJsonPath('message', 'Unauthenticated.');
+    }
+
     public function test_login_returns_profile_and_starts_a_session(): void
     {
         $user = User::factory()->auditor()->create(['email' => 'auditor@kri.test', 'password' => 'rahasia-uji-123']);

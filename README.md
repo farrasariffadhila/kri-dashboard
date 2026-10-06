@@ -122,10 +122,16 @@ When a dispute is accepted:
 
 ### Mobile, dark mode, two languages
 
-<p>
-  <img src="screenshots/15-mobile.png" width="260" alt="Overview on a phone">
-  <img src="screenshots/16-mobile-menu.png" width="260" alt="Navigation drawer on a phone">
-</p>
+<table>
+  <tr>
+    <th>Overview on a phone</th>
+    <th>Navigation menu</th>
+  </tr>
+  <tr>
+    <td><img src="screenshots/15-mobile.png" width="260" alt="Overview on a phone"></td>
+    <td><img src="screenshots/16-mobile-menu.png" width="260" alt="Navigation drawer on a phone"></td>
+  </tr>
+</table>
 
 ![Dark mode](screenshots/17-dark.png)
 

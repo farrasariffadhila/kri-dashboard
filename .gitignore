@@ -1,9 +1,14 @@
-# Local working notes, not published
+# Local working notes
 docs/
 
-# OS files
+# Editor and OS files
+.vscode/
+.idea/
 .DS_Store
 
 # Python
 .venv/
 __pycache__/
+
+# Logs
+*.log

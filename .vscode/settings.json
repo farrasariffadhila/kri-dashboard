@@ -1,4 +1,0 @@
-{
-    "python.defaultInterpreterPath": "${workspaceFolder}/data-generator/.venv/bin/python",
-    "python.analysis.extraPaths": ["${workspaceFolder}/data-generator"]
-}

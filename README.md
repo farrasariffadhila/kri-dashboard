@@ -8,13 +8,45 @@ A board-level dashboard that turns IT operations and security metrics into one c
 
 ## Run it
 
+Docker is the only requirement. You do not need PHP, Node or a database on your machine.
+
+**1. Install Docker**
+
+- **Windows or macOS:** install [Docker Desktop](https://docs.docker.com/get-started/get-docker/) and start it. Wait until it reports that Docker is running.
+- **Linux:** install [Docker Engine](https://docs.docker.com/engine/install/) and the [Compose plugin](https://docs.docker.com/compose/install/linux/).
+
+Check that it works:
+
+```bash
+docker compose version
+```
+
+**2. Get the code**
+
+```bash
+git clone https://github.com/farrasariffadhila/kri-dashboard.git
+cd kri-dashboard
+```
+
+Without Git, use **Code → Download ZIP** on GitHub, unzip it, and open a terminal in that folder.
+
+**3. Start the app**
+
 ```bash
 docker compose up --build
 ```
 
-Open http://localhost:8080 and pick a demo account. Docker is the only requirement.
+The first build downloads the base images and installs dependencies, so it takes a few minutes. Later starts take a few seconds.
+
+When the log shows `ready to handle connections`, open http://localhost:8080 and pick a demo account.
+
+**4. Stop it**
+
+Press `Ctrl+C` in the terminal, or run `docker compose down`. To keep the app running in the background instead, start it with `docker compose up --build -d`.
 
 The database (SQLite inside the container) is rebuilt and re-seeded on every start, so each run begins with a clean demo.
+
+If port 8080 is already in use, change `"8080:8080"` in `docker-compose.yml` to `"8081:8080"`, then open http://localhost:8081.
 
 | Demo account | Role | Things to try |
 |---|---|---|

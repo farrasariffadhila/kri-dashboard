@@ -108,11 +108,6 @@ const activeClass =
             <AppIcon name="flag" /> {{ t('nav.disputes') }}
           </RouterLink>
         </li>
-        <li>
-          <RouterLink :to="{ name: 'methodology' }" :class="linkClass" :active-class="activeClass" @click="emit('navigate')">
-            <AppIcon name="book" /> {{ t('nav.methodology') }}
-          </RouterLink>
-        </li>
       </ul>
     </nav>
 

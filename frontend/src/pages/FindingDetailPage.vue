@@ -3,7 +3,7 @@ import { computed, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { RouterLink } from 'vue-router'
 import { ApiError, attachmentUrl, fetchAuditIssue } from '../lib/api.js'
-import { authStore, refreshWorkCounts } from '../lib/auth.js'
+import { refreshWorkCounts } from '../lib/auth.js'
 import { loadSummary, resetRiskStore } from '../lib/store.js'
 import { RISK_LEVELS, roleLabel } from '../lib/kri.js'
 import { TONE_CLASSES, activityText, completedSteps, remediationInfo, steps, submissionStatus, submissionType } from '../lib/workflow.js'
@@ -51,19 +51,7 @@ const showReturnedNote = computed(
   () => lastReturned.value && (permissions.value.can_submit_plan || permissions.value.can_submit_evidence) && data.value.submissions[0]?.status === 'returned',
 )
 
-/** Why there is nothing to do here, for users without an action. */
-const idleMessage = computed(() => {
-  const user = authStore.user
-  if (!issue.value || issue.value.status === 'Closed') return t('finding.idle.closed')
-  if (['plan_review', 'evidence_review'].includes(issue.value.remediation_status)) return t('finding.idle.inReview')
-  if (user?.role === 'unit_owner') return t('finding.idle.otherUnit', { department: issue.value.department.name })
-  if (user?.role === 'auditor') {
-    return ['in_progress', 'evidence_returned'].includes(issue.value.remediation_status)
-      ? t('finding.idle.awaitingEvidence')
-      : t('finding.idle.awaitingPlan')
-  }
-  return t('finding.idle.viewer', { role: roleLabel(user?.role) })
-})
+const hasAction = computed(() => permissions.value.can_submit_plan || permissions.value.can_submit_evidence || permissions.value.can_review)
 
 async function afterAction(messageKey) {
   notice.value = messageKey
@@ -155,12 +143,11 @@ const crumbs = computed(() => [
     <div class="mt-8 grid gap-8 xl:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
       <div class="min-w-0 space-y-8">
         <!-- What the signed-in user can do now -->
-        <section aria-labelledby="aksi-title" class="border border-border bg-surface p-5 sm:p-6">
+        <section v-if="hasAction" aria-labelledby="aksi-title" class="border border-border bg-surface p-5 sm:p-6">
           <h2 id="aksi-title" class="font-serif text-xl font-semibold">
             <template v-if="permissions.can_submit_plan">{{ t('finding.submitPlan') }}</template>
             <template v-else-if="permissions.can_submit_evidence">{{ t('finding.submitEvidence') }}</template>
             <template v-else-if="permissions.can_review">{{ t('finding.review', { type: submissionType(pending.type).toLowerCase() }) }}</template>
-            <template v-else>{{ t('finding.actions') }}</template>
           </h2>
 
           <div v-if="showReturnedNote" class="mt-3 border-l-4 border-warning-mark bg-warning-bg px-4 py-3 text-sm text-warning-fg">
@@ -184,7 +171,6 @@ const crumbs = computed(() => [
               </div>
               <ReviewForm :submission="pending" @reviewed="afterAction('finding.decisionSaved')" />
             </template>
-            <p v-else class="text-secondary">{{ idleMessage }}</p>
           </div>
         </section>
 
@@ -225,7 +211,6 @@ const crumbs = computed(() => [
       <!-- Audit trail -->
       <section aria-labelledby="jejak-title" class="min-w-0">
         <h2 id="jejak-title" class="font-serif text-xl font-semibold">{{ t('finding.trail') }}</h2>
-        <p class="mt-1 text-sm text-secondary">{{ t('finding.trailText') }}</p>
         <p v-if="!data.activity.length" class="mt-3 text-sm text-secondary">{{ t('finding.noTrail') }}</p>
         <ol v-else class="mt-4 space-y-3 border-l-2 border-border pl-4">
           <li v-for="entry in data.activity" :key="entry.id" class="text-sm">

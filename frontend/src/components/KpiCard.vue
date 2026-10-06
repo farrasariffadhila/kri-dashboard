@@ -3,7 +3,6 @@ import { useI18n } from 'vue-i18n'
 import { computed } from 'vue'
 import { kriChange, statusFromRating } from '../lib/kri.js'
 import { formatMonthLong } from '../lib/format.js'
-import { localized } from '../i18n/index.js'
 import StatusBadge from './StatusBadge.vue'
 
 const { t } = useI18n()
@@ -13,7 +12,6 @@ const props = defineProps({
   current: { type: Object, required: true }, // totals.current[kri.key]
   previous: { type: Object, default: null }, // totals.previous[kri.key]
   previousMonth: { type: String, required: true },
-  source: { type: Object, default: null }, // summary.data_sources[kri.key]
 })
 
 const change = computed(() => kriChange(props.kri, props.current, props.previous))
@@ -40,11 +38,9 @@ const previousLabel = computed(() => formatMonthLong(props.previousMonth).split(
       >
         <span aria-hidden="true">{{ change.direction === 'up' ? '▲' : change.direction === 'down' ? '▼' : '■' }}</span>
         {{ change.text }} {{ t('common.previousMonth', { month: previousLabel }) }}
-        <span v-if="change.trend === 'worse'">· {{ t('common.worse') }}</span>
-        <span v-else-if="change.trend === 'better'">· {{ t('common.better') }}</span>
-      </p>
-      <p v-if="source" class="border-t border-hairline pt-2 text-xs text-muted">
-        {{ t('common.source', { system: localized(source.system) }) }}{{ source.simulated ? ` ${t('common.simulated')}` : '' }}
+        <!-- Arrow direction is not good/bad (uptime down is worse), so screen readers get the verdict. -->
+        <span v-if="change.trend === 'worse'" class="sr-only">· {{ t('common.worse') }}</span>
+        <span v-else-if="change.trend === 'better'" class="sr-only">· {{ t('common.better') }}</span>
       </p>
     </div>
   </article>

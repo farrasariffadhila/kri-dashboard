@@ -39,9 +39,7 @@ function statusText(issue) {
 </script>
 
 <template>
-  <PageHeader :title="t('audits.title')" :breadcrumbs="[{ label: t('common.overview'), to: '/' }, { label: t('audits.title') }]">
-    {{ t('audits.intro', { date: result ? formatDate(result.as_of) : t('audits.endOfPeriod') }) }}
-  </PageHeader>
+  <PageHeader :title="t('audits.title')" :breadcrumbs="[{ label: t('common.overview'), to: '/' }, { label: t('audits.title') }]" />
 
   <form role="search" :aria-label="t('audits.filterAria')" class="flex flex-wrap items-end gap-3" @submit.prevent>
     <label class="flex flex-col gap-1 text-sm">

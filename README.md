@@ -37,7 +37,7 @@ Use **View as** in the top bar to switch persona without signing out. That way y
 
 ### Overview
 
-The page opens with one sentence that names the riskiest department and why, followed by bank-wide KPIs with the change since last month.
+An alert line names the riskiest department and its two biggest drivers. Below it are the bank-wide KPIs, each with the change since last month.
 
 The heatmap is a department × KRI register. Every cell carries a colour, an icon and a text label, so status never depends on colour alone.
 
@@ -47,7 +47,7 @@ The heatmap is a department × KRI register. Every cell carries a colour, an ico
 
 ### Drill-down and department page
 
-Every score explains itself: the value of each indicator, where Warning and Critical start, its score, its weight, and how many points it contributes.
+Every score can be broken down. For each indicator the table shows its value, where Warning and Critical start, its score, its weight, and how many points it contributes. Hover an indicator name to see its source system.
 
 ![Drill-down dialog](screenshots/05-drilldown.png)
 
@@ -61,28 +61,15 @@ Server-side filtering, sorting and pagination. Filters live in the URL, so a fil
 
 ![Server inventory](screenshots/08-servers.png)
 
-### Methodology and data lineage
-
-The weights, thresholds and a worked example are rendered from the same configuration the API scores with.
-
-For each KRI, the page also shows:
-
-- the source system and data owner;
-- the last import, with its row count and SHA-256 checksum.
-
-![Methodology](screenshots/09-methodology.png)
-
-![Data lineage](screenshots/10-data-lineage.png)
-
 ### Remediation of audit findings
 
 The unit owner (1st line) proposes an action plan and later uploads evidence. The internal auditor (3rd line) approves or returns each step. Verified evidence closes the finding, and the department's KRI drops immediately.
 
 Every action lands in an append-only audit trail.
 
-![Work queue](screenshots/11-work-queue-owner.png)
+![Work queue](screenshots/09-work-queue-owner.png)
 
-![Auditor reviewing an action plan](screenshots/12-finding-review.png)
+![Auditor reviewing an action plan](screenshots/10-finding-review.png)
 
 ### KRI data disputes
 
@@ -93,26 +80,26 @@ When a dispute is accepted:
 - the corrected figure feeds the department score and the bank totals;
 - the source figure stays visible next to it, with a link to the dispute.
 
-![Filing a dispute](screenshots/13-dispute-form.png)
+![Filing a dispute](screenshots/11-dispute-form.png)
 
-![IT Risk reviewing a dispute](screenshots/14-dispute-review.png)
+![IT Risk reviewing a dispute](screenshots/12-dispute-review.png)
 
-![Corrected figure on the department page](screenshots/15-dispute-correction.png)
+![Corrected figure on the department page](screenshots/13-dispute-correction.png)
 
-![Disputes list](screenshots/16-disputes.png)
+![Disputes list](screenshots/14-disputes.png)
 
 ### Mobile, dark mode, two languages
 
 <p>
-  <img src="screenshots/17-mobile.png" width="260" alt="Overview on a phone">
-  <img src="screenshots/18-mobile-menu.png" width="260" alt="Navigation drawer on a phone">
+  <img src="screenshots/15-mobile.png" width="260" alt="Overview on a phone">
+  <img src="screenshots/16-mobile-menu.png" width="260" alt="Navigation drawer on a phone">
 </p>
 
-![Dark mode](screenshots/19-dark.png)
+![Dark mode](screenshots/17-dark.png)
 
 The app is available in Indonesian (default) and English. Server messages follow the chosen language too.
 
-![English](screenshots/20-english.png)
+![English](screenshots/18-english.png)
 
 ## How the score works
 
@@ -133,7 +120,8 @@ Each KRI is mapped to a 0–100 score with four anchors, interpolated linearly b
 
 - **Three lines of defence.** Each role can do only its own step. Unit owners act, IT Risk reviews data, internal audit verifies. Every rule is enforced in the backend, not just hidden in the UI.
 - **Maker-checker.** Nobody can approve their own submission. Every transition runs in a database transaction with row locks.
-- **No manual KRI input.** Figures come from logged, checksummed imports. The only correction path is an accepted dispute, and the original figure stays visible.
+- **No manual KRI input.** Figures come from imports logged with row counts and SHA-256 checksums (exposed by the API as data lineage). The only correction path is an accepted dispute, and the original figure stays visible.
+- **No explanations in the UI.** The app is a working tool for trained users, so the scoring method lives in this README rather than on screen.
 - **Append-only audit trail.** The model refuses updates and deletes on log entries.
 - **Need to know.** A unit owner cannot open another department's evidence or disputes.
 - **Evidence uploads.**

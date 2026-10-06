@@ -82,9 +82,6 @@ async function submit() {
       <label :for="ids.description" class="block text-sm font-medium">
         {{ isPlan ? t('form.plan') : t('form.evidence') }}
       </label>
-      <p :id="`${ids.description}-hint`" class="text-xs text-muted">
-        {{ isPlan ? t('form.planHint') : t('form.evidenceHint') }}
-      </p>
       <textarea
         :id="ids.description"
         v-model="description"
@@ -93,7 +90,7 @@ async function submit() {
         class="mt-1 w-full rounded-md border bg-surface px-3 py-2"
         :class="errors.description ? 'border-critical-mark' : 'border-control'"
         :aria-invalid="!!errors.description"
-        :aria-describedby="`${ids.description}-hint${errors.description ? ` ${ids.description}-error` : ''}`"
+        :aria-describedby="errors.description ? `${ids.description}-error` : undefined"
       />
       <p v-if="errors.description" :id="`${ids.description}-error`" class="mt-1 text-sm text-critical-fg">{{ errors.description[0] }}</p>
     </div>

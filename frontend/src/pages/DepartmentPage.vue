@@ -90,7 +90,6 @@ const change = computed(() => {
 
     <section aria-labelledby="dept-tren-title" class="mt-10 border border-border bg-surface p-5 sm:p-6">
       <h2 id="dept-tren-title" class="font-serif text-xl font-semibold">{{ t('overview.trendTitle') }}</h2>
-      <p class="mb-4 mt-1 text-sm text-secondary">{{ t('department.trendSubtitle', { name: department.name }) }}</p>
       <TrendPanel :department-id="department.id" :bands="summary.methodology.bands" />
     </section>
 

@@ -4,7 +4,7 @@ import { computed } from 'vue'
 import { fetchServers } from '../lib/api.js'
 import { riskStore } from '../lib/store.js'
 import { useDebouncedQueryText, useListQuery } from '../lib/useListQuery.js'
-import { formatNumber, formatPercent } from '../lib/format.js'
+import { formatNumber } from '../lib/format.js'
 import PageHeader from '../components/PageHeader.vue'
 import ListPagination from '../components/ListPagination.vue'
 import StatusBadge from '../components/StatusBadge.vue'
@@ -15,16 +15,11 @@ const { query, result, loading, error, update, reset, reload } = useListQuery(fe
 const search = useDebouncedQueryText(query, update, 'q')
 
 const departments = computed(() => [...(riskStore.summary?.data ?? [])].sort((a, b) => a.name.localeCompare(b.name)))
-const bank = computed(() => riskStore.summary?.totals.current.unpatched_servers)
 const hasFilters = computed(() => Object.keys(query.value).some((k) => k !== 'page'))
 </script>
 
 <template>
-  <PageHeader :title="t('servers.title')" :breadcrumbs="[{ label: t('common.overview'), to: '/' }, { label: t('servers.title') }]">
-    <template v-if="bank">
-      {{ t('servers.intro', { total: formatNumber(bank.total_servers), nc: formatNumber(bank.non_compliant), pct: formatPercent(bank.value, 1) }) }}
-    </template>
-  </PageHeader>
+  <PageHeader :title="t('servers.title')" :breadcrumbs="[{ label: t('common.overview'), to: '/' }, { label: t('servers.title') }]" />
 
   <form role="search" :aria-label="t('servers.filterAria')" class="flex flex-wrap items-end gap-3" @submit.prevent>
     <label class="flex flex-col gap-1 text-sm">

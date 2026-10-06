@@ -123,7 +123,6 @@ async function submit() {
 
       <div>
         <label for="dispute-reason" class="block text-sm font-medium">{{ t('dispute.form.reason') }}</label>
-        <p id="dispute-reason-hint" class="text-xs text-muted">{{ t('dispute.form.reasonHint') }}</p>
         <textarea
           id="dispute-reason"
           v-model="reason"
@@ -132,7 +131,7 @@ async function submit() {
           class="mt-1 w-full rounded-md border bg-surface px-3 py-2"
           :class="errors.reason ? 'border-critical-mark' : 'border-control'"
           :aria-invalid="!!errors.reason"
-          :aria-describedby="`dispute-reason-hint${errors.reason ? ' dispute-reason-error' : ''}`"
+          :aria-describedby="errors.reason ? 'dispute-reason-error' : undefined"
         />
         <p v-if="errors.reason" id="dispute-reason-error" class="mt-1 text-sm text-critical-fg">{{ errors.reason[0] }}</p>
       </div>

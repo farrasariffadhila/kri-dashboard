@@ -5,7 +5,6 @@ import { RouterLink, useRoute, useRouter } from 'vue-router'
 import { fetchDisputes } from '../lib/api.js'
 import { authStore } from '../lib/auth.js'
 import { disputeStatus } from '../lib/disputes.js'
-import { formatMonthLong } from '../lib/format.js'
 import PageHeader from '../components/PageHeader.vue'
 import DisputeTable from '../components/DisputeTable.vue'
 
@@ -37,7 +36,6 @@ function setStatus(value) {
 
 <template>
   <PageHeader :title="t('dispute.title')" :breadcrumbs="[{ label: t('common.overview'), to: '/' }, { label: t('dispute.title') }]">
-    {{ data ? t('dispute.intro', { month: formatMonthLong(data.reporting_month) }) : '' }}
     <template #aside>
       <RouterLink
         v-if="isOwner"

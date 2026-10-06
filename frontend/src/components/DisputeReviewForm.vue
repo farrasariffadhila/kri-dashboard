@@ -75,7 +75,6 @@ async function submit() {
 
     <div v-if="decision === 'accept'">
       <label for="dispute-corrected" class="block text-sm font-medium">{{ t('dispute.review.corrected') }}</label>
-      <p id="dispute-corrected-hint" class="text-xs text-muted">{{ t('dispute.review.correctedHint') }}</p>
       <input
         id="dispute-corrected"
         v-model="corrected"
@@ -87,7 +86,7 @@ async function submit() {
         class="mt-1 w-40 rounded-md border bg-surface px-3 py-2 tabular"
         :class="errors.corrected_value ? 'border-critical-mark' : 'border-control'"
         :aria-invalid="!!errors.corrected_value"
-        :aria-describedby="`dispute-corrected-hint${errors.corrected_value ? ' dispute-corrected-error' : ''}`"
+        :aria-describedby="errors.corrected_value ? 'dispute-corrected-error' : undefined"
       />
       <p v-if="errors.corrected_value" id="dispute-corrected-error" class="mt-1 text-sm text-critical-fg">{{ errors.corrected_value[0] }}</p>
     </div>

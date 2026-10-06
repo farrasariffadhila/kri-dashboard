@@ -43,6 +43,13 @@ function thresholdText(kri, anchor) {
   return `${descending ? '<' : '>'} ${value}`
 }
 
+/** Source system, shown as a tooltip on the indicator name. */
+function sourceText(key) {
+  const source = props.sources?.[key]
+  if (!source) return undefined
+  return t('common.source', { system: localized(source.system) }) + (source.simulated ? ` ${t('common.simulated')}` : '')
+}
+
 function overdueText(days) {
   return days > 0 ? t('detail.overdueDays', { days: formatNumber(days) }) : t('detail.notDue')
 }
@@ -52,9 +59,8 @@ function overdueText(days) {
   <div class="space-y-10">
     <section :aria-labelledby="`${idPrefix}-why`">
       <component :is="heading" :id="`${idPrefix}-why`" class="font-serif text-xl font-semibold">
-        {{ t('detail.why', { score: formatScore(department.composite_score) }) }}
+        {{ t('detail.breakdown') }}
       </component>
-      <p class="mt-1 max-w-prose text-secondary">{{ t('detail.whyText') }}</p>
       <div class="relative mt-4 overflow-x-auto" tabindex="0" role="region" :aria-label="t('detail.tableAria')">
         <table class="w-full min-w-176 border-collapse text-sm">
           <thead>
@@ -72,11 +78,7 @@ function overdueText(days) {
           <tbody>
             <tr v-for="kri in ranked" :key="kri.key" class="border-b border-hairline">
               <th scope="row" class="py-3 pr-4 text-left font-medium">
-                {{ kri.label }}
-                <span class="block text-xs font-normal text-muted">{{ kri.description }}</span>
-                <span v-if="sources?.[kri.key]" class="block text-xs font-normal text-muted">
-                  {{ t('common.source', { system: localized(sources[kri.key].system) }) }}{{ sources[kri.key].simulated ? ` ${t('common.simulated')}` : '' }}
-                </span>
+                <span :title="sourceText(kri.key)">{{ kri.label }}</span>
               </th>
               <td class="px-3 py-3 text-right font-semibold tabular">
                 {{ kri.format(kri.value) }}
@@ -136,11 +138,8 @@ function overdueText(days) {
           {{ t('detail.openAuditsLink') }} <AppIcon name="arrow" />
         </RouterLink>
       </div>
-      <p class="mt-1 text-secondary">
-        <template v-if="audits.value > 0">
-          {{ t('detail.openAuditsSummary', { count: formatNumber(audits.value), overdue: formatNumber(audits.overdue), date: formatDate(asOf) }) }}
-        </template>
-        <template v-else>{{ t('detail.noOpenAudits') }}</template>
+      <p class="mt-1 text-sm text-secondary tabular">
+        {{ audits.value > 0 ? t('detail.auditsCount', { count: formatNumber(audits.value), overdue: formatNumber(audits.overdue) }) : t('detail.noOpenAudits') }}
       </p>
       <div v-if="audits.value > 0" class="relative mt-4 overflow-x-auto" tabindex="0" role="region" :aria-label="t('detail.openAuditsAria')">
         <table class="w-full min-w-176 border-collapse text-sm">
@@ -183,8 +182,8 @@ function overdueText(days) {
           {{ t('detail.serversLink') }} <AppIcon name="arrow" />
         </RouterLink>
       </div>
-      <p class="mt-1 text-secondary">
-        {{ t('detail.serversSummary', { nc: formatNumber(servers.non_compliant), total: formatNumber(servers.total_servers), pct: formatPercent(servers.value, 1) }) }}
+      <p class="mt-1 text-sm text-secondary tabular">
+        {{ t('detail.serversCount', { nc: formatNumber(servers.non_compliant), total: formatNumber(servers.total_servers), pct: formatPercent(servers.value, 1) }) }}
       </p>
       <table v-if="servers.top_non_compliant_os.length" class="mt-4 w-full max-w-xl border-collapse text-sm">
         <caption class="pb-2 text-left text-xs text-muted">{{ t('detail.topOs') }}</caption>
@@ -206,15 +205,22 @@ function overdueText(days) {
     <div class="grid gap-8 md:grid-cols-2">
       <section :aria-labelledby="`${idPrefix}-uptime`">
         <component :is="heading" :id="`${idPrefix}-uptime`" class="font-serif text-xl font-semibold">{{ t('detail.availability') }}</component>
-        <p class="mt-1 text-secondary">
-          {{ t('detail.availabilityText', { uptime: formatPercent(uptime.value, 2), apps: formatNumber(uptime.applications), minutes: formatNumber(uptime.total_downtime_minutes), duration: formatDuration(uptime.total_downtime_minutes) }) }}
-        </p>
+        <dl class="mt-3 grid grid-cols-3 gap-4 text-sm">
+          <div><dt class="text-muted">{{ t('detail.uptimeAvg') }}</dt><dd class="mt-0.5 text-lg font-semibold tabular">{{ formatPercent(uptime.value, 2) }}</dd></div>
+          <div><dt class="text-muted">{{ t('detail.apps') }}</dt><dd class="mt-0.5 text-lg font-semibold tabular">{{ formatNumber(uptime.applications) }}</dd></div>
+          <div>
+            <dt class="text-muted">{{ t('detail.downtime') }}</dt>
+            <dd class="mt-0.5 text-lg font-semibold tabular">{{ formatDuration(uptime.total_downtime_minutes) }}</dd>
+          </div>
+        </dl>
       </section>
       <section :aria-labelledby="`${idPrefix}-phishing`">
         <component :is="heading" :id="`${idPrefix}-phishing`" class="font-serif text-xl font-semibold">{{ t('detail.phishing') }}</component>
-        <p class="mt-1 text-secondary">
-          {{ t('detail.phishingText', { failed: formatNumber(phishing.total_failed), tested: formatNumber(phishing.total_tested), pct: formatPercent(phishing.value, 1) }) }}
-        </p>
+        <dl class="mt-3 grid grid-cols-3 gap-4 text-sm">
+          <div><dt class="text-muted">{{ t('detail.failRate') }}</dt><dd class="mt-0.5 text-lg font-semibold tabular">{{ formatPercent(phishing.value, 1) }}</dd></div>
+          <div><dt class="text-muted">{{ t('detail.failed') }}</dt><dd class="mt-0.5 text-lg font-semibold tabular">{{ formatNumber(phishing.total_failed) }}</dd></div>
+          <div><dt class="text-muted">{{ t('detail.tested') }}</dt><dd class="mt-0.5 text-lg font-semibold tabular">{{ formatNumber(phishing.total_tested) }}</dd></div>
+        </dl>
       </section>
     </div>
   </div>

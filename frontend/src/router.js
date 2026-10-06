@@ -66,12 +66,6 @@ const router = createRouter({
       meta: { titleKey: 'titles.servers' },
     },
     {
-      path: '/metodologi',
-      name: 'methodology',
-      component: () => import('./pages/MethodologyPage.vue'),
-      meta: { titleKey: 'titles.methodology' },
-    },
-    {
       path: '/:pathMatch(.*)*',
       name: 'not-found',
       component: () => import('./pages/NotFoundPage.vue'),

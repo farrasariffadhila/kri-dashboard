@@ -29,11 +29,6 @@ async function load() {
 onMounted(load)
 
 const role = computed(() => authStore.user?.role)
-const intro = computed(() => {
-  if (role.value === 'unit_owner') return t('workQueue.introOwner', { department: authStore.user?.department?.name ?? '' })
-  if (role.value === 'risk_officer') return t('workQueue.introRiskOfficer')
-  return t('workQueue.introAuditor')
-})
 
 const sections = computed(() => {
   if (!data.value) return []
@@ -57,9 +52,7 @@ const sections = computed(() => {
 </script>
 
 <template>
-  <PageHeader :title="t('workQueue.title')" :breadcrumbs="[{ label: t('common.overview'), to: '/' }, { label: t('workQueue.title') }]">
-    {{ intro }}
-  </PageHeader>
+  <PageHeader :title="t('workQueue.title')" :breadcrumbs="[{ label: t('common.overview'), to: '/' }, { label: t('workQueue.title') }]" />
 
   <div v-if="error" role="alert" class="max-w-2xl border-l-4 border-critical-mark bg-critical-bg px-5 py-4">
     <p class="font-semibold text-critical-fg">{{ t('workQueue.loadFailed') }}</p>

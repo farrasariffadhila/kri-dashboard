@@ -50,7 +50,6 @@ The app has a sidebar and the pages below (Vue Router, history mode). A producti
 | `/departemen/:id` | One department: score and change, the four KRIs, trend, and the full explanation of its score |
 | `/temuan-audit` | All audit findings with filters (department, risk level, status, overdue, search), sorting and pagination. Filters live in the URL, so a filtered view can be shared. |
 | `/server` | Server inventory with filters (department, patch compliance, OS, hostname/IP search) |
-| `/metodologi` | Weights, thresholds, a worked example and the data lineage (source systems and import log), rendered from the API |
 | `/masuk` | Sign-in: persona picker in demo mode, email and password form otherwise |
 | `/tindak-lanjut` | Work queue: what the signed-in user has to act on |
 | `/temuan-audit/:id` | One finding: remediation steps, the role-specific action form, submission history with evidence files, audit trail |
